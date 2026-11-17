@@ -3,7 +3,7 @@ import '../styles/global.css';
 import displayFont from '@fontsource-variable/big-shoulders/files/big-shoulders-latin-opsz-normal.woff2?url';
 import textFont from '@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2?url';
 import curriculum from '../data/curriculum.json';
-import { SEMESTER_PATH, footnote } from '../lib/content.js';
+import { PLAN_NAME, SEMESTER_PATH, footnote } from '../lib/content.js';
 
 interface Props {
   title: string;
@@ -23,7 +23,7 @@ const site = Astro.site!;
 const canonical = new URL(Astro.url.pathname, site).href;
 const home = new URL('/', site).href;
 const image = new URL('/og.png', site).href;
-const imageAlt = 'The 30-month plan drawn as a bar chart schedule: five phases, each ending in a milestone.';
+const imageAlt = 'The four-year program drawn as a bar chart schedule: each phase ends in a milestone.';
 
 const graph = [
   {
@@ -50,7 +50,7 @@ const graph = [
         {
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'The 30-month plan', item: home },
+            { '@type': 'ListItem', position: 1, name: PLAN_NAME, item: home },
             { '@type': 'ListItem', position: 2, name: breadcrumb, item: canonical },
           ],
         },
@@ -112,7 +112,7 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
       <div class="wrap masthead__inner">
         <a class="wordmark" href="/"><span class="diamond" aria-hidden="true"></span>{name}</a>
         <nav aria-label="Site">
-          <a href="/#phases">The five phases</a>
+          <a href="/#phases">The phases</a>
           <a href={SEMESTER_PATH}>Spring 2027</a>
         </nav>
       </div>
@@ -162,6 +162,7 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     letter-spacing: 0.01em;
     color: var(--ink);
     text-decoration: none;
+    white-space: nowrap;
   }
 
   nav {
@@ -175,6 +176,7 @@ const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': grap
     color: var(--ink);
     text-decoration: none;
     padding-block: 0.4rem;
+    white-space: nowrap;
   }
 
   nav a:hover {

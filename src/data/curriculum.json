@@ -2,13 +2,13 @@
   "program": {
     "name": "Spark-DO",
     "field": "real estate development",
-    "months": 30,
-    "starts": "2027-01-11",
+    "months": 48,
+    "starts": "2026-06",
     "workHours": "30",
     "studyHours": "10–15",
     "headline": "Real estate development and construction management apprenticeship",
-    "lede": "The apprenticeship combines 30 hours a week of work at 3F Construction with 10–15 hours of study. Each lesson is then put to use on a job the company is building.",
-    "description": "A 30-month apprenticeship in real estate development and construction management: part-time work at 3F Construction, paired with coursework used on live jobs.",
+    "lede": "Four years at 3F Construction: six months of field support, 30 months of coursework that is put to use on live jobs, and a final year running a project as its superintendent.",
+    "description": "A four-year apprenticeship in real estate development and construction management at 3F Construction: field work, applied coursework and a capstone year.",
     "title": "Real estate development and construction management apprenticeship | Spark-DO",
     "company": "3F Construction",
     "headlineLines": [
@@ -28,15 +28,34 @@
         "width": 216,
         "height": 64
       }
-    ]
+    ],
+    "years": "four-year",
+    "startLabel": "June 2026",
+    "planName": "The four-year program"
   },
   "phases": [
     {
       "n": 1,
-      "title": "Project management",
+      "title": "Field support",
       "months": [
         1,
-        5
+        6
+      ],
+      "study": [
+        "Supports a field superintendent on 3F Construction jobs",
+        "Joins every project call, including owner-architect-contractor (OAC) meetings and internal coordination calls",
+        "Helps coordinate between the field and the office",
+        "Takes on field assignments that mean reviewing drawings and coordinating with subcontractors and the project management team"
+      ],
+      "milestone": "Shows the ability to work hard and quickly on field assignments.",
+      "milestoneShort": "Proven on field assignments"
+    },
+    {
+      "n": 2,
+      "title": "Project management",
+      "months": [
+        7,
+        11
       ],
       "weeklyHours": "10",
       "split": "8 hours of coursework and 2 applying it on a live company job",
@@ -49,11 +68,11 @@
       "milestoneShort": "Certificate and a live project schedule"
     },
     {
-      "n": 2,
+      "n": 3,
       "title": "Illinois broker's license",
       "months": [
-        6,
-        10
+        12,
+        16
       ],
       "weeklyHours": "10–12",
       "split": "8–10 hours of pre-license coursework and exam prep, 2 on an algebra refresher",
@@ -66,11 +85,11 @@
       "milestoneShort": "Illinois broker's license"
     },
     {
-      "n": 3,
+      "n": 4,
       "title": "Finance, statistics and economics",
       "months": [
-        11,
-        16
+        17,
+        22
       ],
       "weeklyHours": "12–15",
       "split": "5 hours of statistics and economics, 5 of MIT finance, 2–5 of pro forma modeling",
@@ -83,11 +102,11 @@
       "milestoneShort": "First deal underwritten independently"
     },
     {
-      "n": 4,
+      "n": 5,
       "title": "Software and prompt engineering",
       "months": [
-        17,
-        23
+        23,
+        29
       ],
       "weeklyHours": "12–15",
       "split": "8–10 hours of software and prompt engineering, 4–5 of real estate learning mixed in",
@@ -101,21 +120,35 @@
       "milestoneShort": "An internal tool in use"
     },
     {
-      "n": 5,
-      "title": "Network engineering and capstone",
+      "n": 6,
+      "title": "Network engineering and a development deal",
       "months": [
-        24,
-        30
+        30,
+        36
       ],
       "weeklyHours": "12–15",
-      "split": "three months of networking alongside real estate law, leasing and market analysis, then four months on the capstone deal",
+      "split": "three months of networking alongside real estate law, leasing and market analysis, then four months on a development deal",
       "study": [
         "Cisco Networking Academy or CompTIA Network+ prep, with hands-on work configuring the network for a building or the office",
         "Mixed in: real estate law and contracts, property management and leasing, market analysis for Chicago neighborhoods, and shadowing the mentor in lender and investor meetings",
-        "Capstone: source, underwrite, schedule and pitch a small real development deal, with the mentor as the investor"
+        "Development deal: source, underwrite, schedule and pitch a small real development deal, with the mentor as the investor"
       ],
-      "milestone": "Delivers a capstone investment memo and presents it.",
-      "milestoneShort": "Capstone deal pitched"
+      "milestone": "Delivers an investment memo for the deal and presents it.",
+      "milestoneShort": "Development deal pitched"
+    },
+    {
+      "n": 7,
+      "title": "Capstone project",
+      "months": [
+        37,
+        48
+      ],
+      "study": [
+        "Works as the job site superintendent, managing a construction project",
+        "Takes on project management responsibilities as well: RFIs, submittals and the project paperwork normally expected from office support"
+      ],
+      "milestone": "Manages a construction project as its superintendent while carrying the project management work.",
+      "milestoneShort": "A project run as superintendent"
     }
   ],
   "threads": [
@@ -136,16 +169,17 @@
     "how": {
       "title": "Every lesson gets used on a real job",
       "body": [
-        "The plan pairs part-time work at 3F Construction with part-time study, and ties the two together. Each course is matched to tasks on a project the company has under way.",
+        "The program opens with six months of field support and closes with a year running a project. In the 30 months between, part-time work at 3F Construction is paired with part-time study, and the two are tied together: each course is matched to tasks on a project the company has under way.",
+        "During those 30 months the student works 30 hours a week and studies 10–15 more.",
         "When the course covers critical path scheduling, the student finds the critical path on a project 3F Construction is building. When it covers construction loans, the student reads the term sheet for one of the company's loans and works out a month of interest.",
         "The order is deliberate: early wins first, heavier academics later. Each phase ends with something the student has to produce and present to a mentor before the next one starts."
       ]
     },
     "phases": {
-      "title": "The five phases"
+      "title": "The seven phases"
     },
     "semester": {
-      "title": "The first semester is planned to the day"
+      "title": "The first coursework semester is planned to the day"
     },
     "threads": {
       "title": "Three things that never stop",

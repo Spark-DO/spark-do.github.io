@@ -60,7 +60,7 @@ const schema = [
           </ul>
         </div>
       </div>
-      <Schedule phases={phases} months={program.months} startLabel="January 2027" />
+      <Schedule phases={phases} months={program.months} startLabel={program.startLabel} />
     </div>
   </section>
 
@@ -86,9 +86,11 @@ const schema = [
               </p>
               <div class="phase__body">
                 <h3>{p.title}</h3>
-                <p class="small">
-                  {p.weeklyHours} hours a week: {p.split}.
-                </p>
+                {p.weeklyHours && (
+                  <p class="small">
+                    {p.weeklyHours} hours a week: {p.split}.
+                  </p>
+                )}
                 <ul class="phase__study">
                   {p.study.map((item) => (
                     <li>{item}</li>

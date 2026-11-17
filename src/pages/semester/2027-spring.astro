@@ -3,7 +3,7 @@ import Base from '../../layouts/Base.astro';
 import DayStrip from '../../components/DayStrip.astro';
 import semester from '../../data/semester-2027-spring.json';
 import { rich } from '../../lib/rich.js';
-import { SEMESTER_TITLE, semesterIntro } from '../../lib/content.js';
+import { PLAN_NAME, SEMESTER_TITLE, semesterIntro, semesterPhaseNumber } from '../../lib/content.js';
 
 const checkpointDays = new Set(semester.checkpoints.map((c) => c.iso));
 const courseUrl = (n: number) => semester.courses.find((c) => c.n === n)!.url;
@@ -14,11 +14,11 @@ const firstWeekOf = (course: number) => semester.weeks.find((w) => w.days.some((
   markdown="/semester/2027-spring.md"
   breadcrumb={SEMESTER_TITLE}
   title="Spring 2027 semester, day by day | Spark-DO"
-  description="Phase 1 of the apprenticeship: 18 weeks and 54 office days of Columbia construction management coursework, each paired with a task on a live project."
+  description={`Phase ${semesterPhaseNumber} of the apprenticeship: 18 weeks and 54 office days of Columbia construction management coursework, each paired with a task on a live project.`}
 >
   <section class="intro">
     <div class="wrap">
-      <p class="small"><a href="/">The 30-month plan</a>, phase 1</p>
+      <p class="small"><a href="/">{PLAN_NAME}</a>, phase {semesterPhaseNumber}</p>
       <h1>{SEMESTER_TITLE}</h1>
       <div class="intro__grid">
         <div class="prose">
@@ -127,7 +127,7 @@ const firstWeekOf = (course: number) => semester.weeks.find((w) => w.days.some((
         }
       </ol>
       <p class="small checkpoints__note">{semesterIntro.checkIn}</p>
-      <p><a class="button" href="/">Back to the 30-month plan</a></p>
+      <p><a class="button" href="/">Back to the four-year program</a></p>
     </div>
   </section>
 </Base>

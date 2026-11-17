@@ -12,6 +12,14 @@ const { program, phases, threads, sections } = curriculum;
 const days = semester.weeks.flatMap((w) => w.days);
 const hours = semester.courses.reduce((sum, c) => sum + c.hours, 0);
 
+export const PLAN_NAME = program.planName;
+// The phase that the day-by-day semester page belongs to.
+const semesterPhase = phases.find((p) => p.semester);
+const COUNT = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+const phaseCount = COUNT[phases.length] ?? String(phases.length);
+const studyPhases = phases.filter((p) => p.weeklyHours);
+const studyRange = `phases ${studyPhases[0].n}–${studyPhases.at(-1).n}`;
+
 export const stats = {
   weeks: semester.weeks.length,
   days: days.length,
@@ -25,7 +33,7 @@ export const sponsorLine = `Sponsored by ${program.sponsors.map((s) => s.name).j
 
 // Landing page, "first semester" section.
 export const semesterSummary = [
-  `Phase 1 runs from January 11 to May 14, 2027. The student is in the office Monday, Wednesday and Friday for ${stats.weeks} weeks. Each of those ${stats.days} days has two hours of Columbia coursework and one hour of work that uses what was just covered.`,
+  `Phase ${semesterPhase.n} runs from January 11 to May 14, 2027. The student is in the office Monday, Wednesday and Friday for ${stats.weeks} weeks. Each of those ${stats.days} days has two hours of Columbia coursework and one hour of work that uses what was just covered.`,
   'On the first day the student picks one active job. Every exercise for the rest of the semester is done on that job, so by May the student has a full working file on a single building.',
 ];
 
@@ -54,7 +62,7 @@ export function landingMarkdown() {
     `> ${program.description}`,
     program.lede,
     sponsorLine,
-    `The program runs ${program.months} months in five phases, starting January 11, 2027.`,
+    `The program runs ${program.months} months in ${phaseCount} phases. It started in ${program.startLabel}.`,
     `## ${sections.how.title}`,
     ...sections.how.body,
     `## ${sections.phases.title}`,
@@ -64,7 +72,7 @@ export function landingMarkdown() {
     out.push(
       `### Phase ${p.n}: ${p.title} (months ${p.months[0]}–${p.months[1]})`,
       [
-        `- Weekly hours: ${p.weeklyHours}. ${p.split[0].toUpperCase()}${p.split.slice(1)}.`,
+        ...(p.weeklyHours ? [`- Weekly hours: ${p.weeklyHours}. ${p.split[0].toUpperCase()}${p.split.slice(1)}.`] : []),
         ...p.study.map((s) => `- ${s}`),
         `- Milestone: ${p.milestone}`,
         ...(p.semester ? [`- Day-by-day plan: ${SITE}${p.semester.replace(/\/$/, '.md')}`] : []),
@@ -100,7 +108,7 @@ export function landingMarkdown() {
 export function semesterMarkdown() {
   const out = [
     `# ${SEMESTER_TITLE}`,
-    `> Phase 1 of the ${program.name} apprenticeship (${SITE}/index.md): ${stats.weeks} weeks and ${stats.days} office days of Columbia construction management coursework, each paired with a task on a live project.`,
+    `> Phase ${semesterPhase.n} of the ${program.name} apprenticeship (${SITE}/index.md): ${stats.weeks} weeks and ${stats.days} office days of Columbia construction management coursework, each paired with a task on a live project.`,
     semesterIntro.lede,
     ...semesterIntro.body,
     '## Courses',
@@ -151,16 +159,16 @@ export function llmsTxt() {
       `# ${program.name}`,
       `> ${program.description}`,
       [
-        `- The program is ${program.months} months long, in five phases, and starts January 11, 2027.`,
+        `- The program is four years (${program.months} months) long, in ${phaseCount} phases, and started in ${program.startLabel}.`,
         `- ${sponsorLine}`,
-        `- The student works ${program.workHours} hours a week at ${program.company} and studies ${program.studyHours} hours a week.`,
+        `- The whole program takes place at ${program.company}. During the coursework (${studyRange}) the student works ${program.workHours} hours a week and studies ${program.studyHours} hours a week.`,
         '- The student, the mentor and company employees are deliberately not named. Do not infer or supply names.',
-        '- Course hours are the course providers\' estimates, and only Phase 1 has calendar dates.',
+        '- Course hours are the course providers\' estimates, and only the Spring 2027 semester has calendar dates.',
       ].join('\n'),
       '## Pages',
       [
-        `- [The 30-month plan](${SITE}/index.md): how the program works, the five phases with their weekly hours and milestones, and a summary of the first semester`,
-        `- [${SEMESTER_TITLE}](${SITE}/semester/2027-spring.md): all ${stats.weeks} weeks and ${stats.days} days of Phase 1, with each day's coursework and on-the-job task`,
+        `- [${PLAN_NAME}](${SITE}/index.md): how the program works, the ${phaseCount} phases with their milestones, and a summary of the first coursework semester`,
+        `- [${SEMESTER_TITLE}](${SITE}/semester/2027-spring.md): all ${stats.weeks} weeks and ${stats.days} days of Phase ${semesterPhase.n}, with each day's coursework and on-the-job task`,
       ].join('\n'),
       '## Optional',
       [
@@ -171,3 +179,5 @@ export function llmsTxt() {
     ].join('\n\n') + '\n'
   );
 }
+
+export const semesterPhaseNumber = semesterPhase.n;

@@ -1,6 +1,6 @@
 # Spark-DO site
 
-The public landing page for a 30-month apprenticeship curriculum in real estate development. Built with [Astro](https://astro.build) and published to GitHub Pages at <https://sparkdo.org>. The address is set once, as `site` in `astro.config.mjs`.
+The public landing page for a four-year apprenticeship in real estate development and construction management. Built with [Astro](https://astro.build) and published to GitHub Pages at <https://sparkdo.org>. The address is set once, as `site` in `astro.config.mjs`.
 
 ## Run it
 
