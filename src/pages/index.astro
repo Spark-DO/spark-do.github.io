@@ -36,7 +36,9 @@ const schema = [
 <Base title={program.title} description={program.description} markdown="/index.md" schema={schema}>
   <section class="hero">
     <div class="wrap">
-      <h1>{program.headline}</h1>
+      <div class="hero__fit">
+        <h1 data-fit><span>{program.headline}</span></h1>
+      </div>
       <p class="lede">{program.lede}</p>
       <Schedule phases={phases} months={program.months} startLabel="January 2027" />
     </div>
@@ -185,6 +187,29 @@ const schema = [
   </section>
 </Base>
 
+<script>
+  // Fits the one-line headline to its container exactly, whatever it says.
+  const title = document.querySelector<HTMLElement>('[data-fit]');
+  const text = title?.firstElementChild as HTMLElement | null;
+
+  function fit() {
+    if (!title || !text) return;
+    title.style.fontSize = '';
+    if (getComputedStyle(title).whiteSpace !== 'nowrap') return;
+    const available = title.parentElement!.clientWidth;
+    // Two passes: the font's optical size shifts letter widths as it scales.
+    for (let pass = 0; pass < 2; pass++) {
+      const size = parseFloat(getComputedStyle(title).fontSize);
+      title.style.fontSize = `${Math.floor(((size * available) / text.getBoundingClientRect().width) * 100) / 100}px`;
+    }
+  }
+
+  if (title) {
+    document.fonts.ready.then(fit);
+    new ResizeObserver(fit).observe(title.parentElement!);
+  }
+</script>
+
 <style>
   .hero {
     padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(3rem, 7vw, 5.5rem);
@@ -192,6 +217,22 @@ const schema = [
 
   .hero h1 {
     max-width: 19ch;
+  }
+
+  /* On wide screens the headline runs the full width on one line. The size
+     is the container width divided by the headline's width in ems; the
+     script below replaces this estimate with an exact fit. */
+  .hero__fit {
+    container-type: inline-size;
+  }
+
+  @media (min-width: 56rem) {
+    .hero h1 {
+      max-width: none;
+      white-space: nowrap;
+      font-size: calc(100cqi / 27.2);
+      line-height: 1.05;
+    }
   }
 
   .hero .lede {
