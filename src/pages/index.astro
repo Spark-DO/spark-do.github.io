@@ -37,9 +37,12 @@ const schema = [
   <section class="hero">
     <div class="wrap">
       <div class="hero__fit">
-        <h1>
-          <span class="hero__lead" data-fit>{program.headlineLines[0]}</span>{' '}
-          <span class="hero__big" data-fit>{program.headlineLines[1]}</span>
+        <h1 data-fit>
+          {program.headlineLines.map((line) => (
+            <>
+              <span>{line}</span>{' '}
+            </>
+          ))}
         </h1>
       </div>
       <div class="hero__intro">
@@ -205,28 +208,31 @@ const schema = [
 </Base>
 
 <script>
-  // Each headline line marked data-fit is sized to span its container exactly,
-  // whatever it says. A line that is allowed to wrap is left alone.
-  const lines = [...document.querySelectorAll<HTMLElement>('[data-fit]')];
-  const box = lines[0]?.closest<HTMLElement>('.hero__fit');
+  // On wide screens the headline's lines do not wrap, and its size is set so
+  // the longest line spans the container exactly, whatever the headline says.
+  const title = document.querySelector<HTMLElement>('[data-fit]');
+  const box = title?.closest<HTMLElement>('.hero__fit');
 
   function fit() {
-    if (!box) return;
-    const available = box.clientWidth;
-    for (const line of lines) {
-      line.style.fontSize = '';
-      if (getComputedStyle(line).whiteSpace !== 'nowrap') continue;
-      const range = document.createRange();
-      range.selectNodeContents(line);
-      // Three passes: the font's optical size shifts letter widths as it scales.
-      for (let pass = 0; pass < 3; pass++) {
-        const size = parseFloat(getComputedStyle(line).fontSize);
-        line.style.fontSize = `${Math.floor(((size * available) / range.getBoundingClientRect().width) * 100) / 100}px`;
-      }
+    if (!title || !box) return;
+    title.style.fontSize = '';
+    if (getComputedStyle(title).whiteSpace !== 'nowrap') return;
+    const range = document.createRange();
+    const widest = () =>
+      Math.max(
+        ...[...title.children].map((line) => {
+          range.selectNodeContents(line);
+          return range.getBoundingClientRect().width;
+        }),
+      );
+    // Three passes: the font's optical size shifts letter widths as it scales.
+    for (let pass = 0; pass < 3; pass++) {
+      const size = parseFloat(getComputedStyle(title).fontSize);
+      title.style.fontSize = `${Math.floor(((size * box.clientWidth) / widest()) * 100) / 100}px`;
     }
   }
 
-  if (box) {
+  if (title && box) {
     document.fonts.ready.then(fit);
     new ResizeObserver(fit).observe(box);
   }
@@ -237,28 +243,16 @@ const schema = [
     padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(3rem, 7vw, 5.5rem);
   }
 
-  /* The headline is two lines that each span the full width: the subject,
-     then one very large word. The sizes below are estimates (container width
-     divided by each line's width in ems); the script above makes them exact. */
+  /* Two-line headline. On wide screens neither line wraps and the longer
+     one spans the full width: the size below is an estimate (container width
+     divided by that line's width in ems) that the script above makes exact. */
   .hero__fit {
     container-type: inline-size;
   }
 
   .hero h1 {
-    font-size: clamp(2rem, 7.4vw, 3rem);
-    line-height: 1;
-  }
-
-  .hero__lead,
-  .hero__big {
-    display: block;
-  }
-
-  .hero__big {
-    white-space: nowrap;
-    font-size: calc(100cqi / 5.72);
-    line-height: 0.88;
-    margin-top: 0.04em;
+    font-size: clamp(2.5rem, 9vw, 3.25rem);
+    line-height: 0.98;
   }
 
   .hero__intro {
@@ -283,9 +277,13 @@ const schema = [
   }
 
   @media (min-width: 56rem) {
-    .hero__lead {
+    .hero h1 {
+      font-size: calc(100cqi / 15.95);
       white-space: nowrap;
-      font-size: calc(100cqi / 21.8);
+    }
+
+    .hero h1 span {
+      display: block;
     }
 
     .hero__intro {

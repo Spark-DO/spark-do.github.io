@@ -60,9 +60,9 @@ h1 {
   line-height: 0.94;
 }
 
-/* Kept below the first line of the landing page headline. */
+/* Kept below the landing page headline at every width. */
 h2 {
-  font-size: clamp(1.9rem, 3.6vw, 2.75rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 750;
 }
 
