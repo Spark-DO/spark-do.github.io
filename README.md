@@ -40,4 +40,4 @@ The importer checks that every date falls on the weekday the plan says it does a
 
 ## Privacy
 
-This repo is public and the curriculum repo is not. No personal names of family members or employees belong in this repo: the pages say "the student", "the mentor", "the PM" and "the super", and never describe how they are related. The company name, 3F Construction, is fine to use.
+This repo is public and the curriculum repo is not. No personal names of family members or employees belong in this repo: the pages say "the student", "the mentor", "the PM" and "the super", and never describe how they are related. The sponsors' names, 3F Construction and Monroe Residential Partners, are fine to use; their logos are in `public/sponsors/`.

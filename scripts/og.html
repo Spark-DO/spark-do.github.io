@@ -24,18 +24,15 @@
         letter-spacing: 0.01em;
       }
       .diamond { width: 20px; height: 20px; background: #f0591a; transform: rotate(45deg); }
-      h1 {
-        margin-top: 34px;
-        font: 800 86px/0.95 'Big Shoulders Variable', sans-serif;
-        max-width: 1000px;
-      }
-      .chart { margin-top: auto; padding-bottom: 46px; }
+      h1 { margin-top: 30px; font: 800 49.4px/1 'Big Shoulders Variable', sans-serif; white-space: nowrap; }
+      h1 b { display: block; font-size: 187px; line-height: 0.88; margin-top: 2px; }
+      .chart { margin-top: auto; padding-bottom: 40px; }
       .axis { border-bottom: 3px solid #0f1b33; margin-bottom: 14px; }
       .row {
         display: grid;
         grid-template-columns: repeat(30, 1fr);
-        height: 24px;
-        margin-top: 10px;
+        height: 20px;
+        margin-top: 9px;
         background-image: repeating-linear-gradient(to right, #c9d0db 0, #c9d0db 1px, transparent 1px, transparent calc(100% / 30));
       }
       .bar { position: relative; background: #2456c9; }
@@ -43,9 +40,9 @@
         content: '';
         position: absolute;
         right: -11px;
-        top: 1px;
-        width: 22px;
-        height: 22px;
+        top: 0;
+        width: 20px;
+        height: 20px;
         background: #f0591a;
         outline: 4px solid #f4f6f8;
         transform: rotate(45deg);
@@ -54,7 +51,7 @@
   </head>
   <body>
     <div class="wordmark"><span class="diamond"></span>Spark-DO</div>
-    <h1>Real estate development and construction management apprenticeship</h1>
+    <h1>Real estate development and construction management <b>apprenticeship</b></h1>
     <div class="chart">
       <div class="axis"></div>
       <div class="row"><span class="bar" style="grid-column: 1 / 6"></span></div>

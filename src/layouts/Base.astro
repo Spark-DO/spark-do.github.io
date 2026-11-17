@@ -33,6 +33,7 @@ const graph = [
     name,
     description: curriculum.program.description,
     inLanguage: 'en',
+    sponsor: curriculum.program.sponsors.map((s) => ({ '@type': 'Organization', name: s.name })),
   },
   {
     '@type': 'WebPage',

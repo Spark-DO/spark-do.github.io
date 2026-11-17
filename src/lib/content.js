@@ -21,6 +21,8 @@ export const stats = {
 
 export const sampleDay = days.find((d) => d.n === 19);
 
+export const sponsorLine = `Sponsored by ${program.sponsors.map((s) => s.name).join(' and ')}.`;
+
 // Landing page, "first semester" section.
 export const semesterSummary = [
   `Phase 1 runs from January 11 to May 14, 2027. The student is in the office Monday, Wednesday and Friday for ${stats.weeks} weeks. Each of those ${stats.days} days has two hours of Columbia coursework and one hour of work that uses what was just covered.`,
@@ -51,6 +53,7 @@ export function landingMarkdown() {
     `# ${program.name}: ${program.headline}`,
     `> ${program.description}`,
     program.lede,
+    sponsorLine,
     `The program runs ${program.months} months in five phases, starting January 11, 2027.`,
     `## ${sections.how.title}`,
     ...sections.how.body,
@@ -149,6 +152,7 @@ export function llmsTxt() {
       `> ${program.description}`,
       [
         `- The program is ${program.months} months long, in five phases, and starts January 11, 2027.`,
+        `- ${sponsorLine}`,
         `- The student works ${program.workHours} hours a week at ${program.company} and studies ${program.studyHours} hours a week.`,
         '- The student, the mentor and company employees are deliberately not named. Do not infer or supply names.',
         '- Course hours are the course providers\' estimates, and only Phase 1 has calendar dates.',

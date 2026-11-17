@@ -37,9 +37,26 @@ const schema = [
   <section class="hero">
     <div class="wrap">
       <div class="hero__fit">
-        <h1 data-fit><span>{program.headline}</span></h1>
+        <h1>
+          <span class="hero__lead" data-fit>{program.headlineLines[0]}</span>{' '}
+          <span class="hero__big" data-fit>{program.headlineLines[1]}</span>
+        </h1>
       </div>
-      <p class="lede">{program.lede}</p>
+      <div class="hero__intro">
+        <p class="lede">{program.lede}</p>
+        <div class="sponsors">
+          <p class="small">Sponsored by</p>
+          <ul>
+            {
+              program.sponsors.map((sponsor) => (
+                <li>
+                  <img src={sponsor.logo} alt={sponsor.name} width={sponsor.width} height={sponsor.height} />
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
       <Schedule phases={phases} months={program.months} startLabel="January 2027" />
     </div>
   </section>
@@ -188,25 +205,30 @@ const schema = [
 </Base>
 
 <script>
-  // Fits the one-line headline to its container exactly, whatever it says.
-  const title = document.querySelector<HTMLElement>('[data-fit]');
-  const text = title?.firstElementChild as HTMLElement | null;
+  // Each headline line marked data-fit is sized to span its container exactly,
+  // whatever it says. A line that is allowed to wrap is left alone.
+  const lines = [...document.querySelectorAll<HTMLElement>('[data-fit]')];
+  const box = lines[0]?.closest<HTMLElement>('.hero__fit');
 
   function fit() {
-    if (!title || !text) return;
-    title.style.fontSize = '';
-    if (getComputedStyle(title).whiteSpace !== 'nowrap') return;
-    const available = title.parentElement!.clientWidth;
-    // Two passes: the font's optical size shifts letter widths as it scales.
-    for (let pass = 0; pass < 2; pass++) {
-      const size = parseFloat(getComputedStyle(title).fontSize);
-      title.style.fontSize = `${Math.floor(((size * available) / text.getBoundingClientRect().width) * 100) / 100}px`;
+    if (!box) return;
+    const available = box.clientWidth;
+    for (const line of lines) {
+      line.style.fontSize = '';
+      if (getComputedStyle(line).whiteSpace !== 'nowrap') continue;
+      const range = document.createRange();
+      range.selectNodeContents(line);
+      // Three passes: the font's optical size shifts letter widths as it scales.
+      for (let pass = 0; pass < 3; pass++) {
+        const size = parseFloat(getComputedStyle(line).fontSize);
+        line.style.fontSize = `${Math.floor(((size * available) / range.getBoundingClientRect().width) * 100) / 100}px`;
+      }
     }
   }
 
-  if (title) {
+  if (box) {
     document.fonts.ready.then(fit);
-    new ResizeObserver(fit).observe(title.parentElement!);
+    new ResizeObserver(fit).observe(box);
   }
 </script>
 
@@ -215,29 +237,62 @@ const schema = [
     padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(3rem, 7vw, 5.5rem);
   }
 
-  .hero h1 {
-    max-width: 19ch;
-  }
-
-  /* On wide screens the headline runs the full width on one line. The size
-     is the container width divided by the headline's width in ems; the
-     script below replaces this estimate with an exact fit. */
+  /* The headline is two lines that each span the full width: the subject,
+     then one very large word. The sizes below are estimates (container width
+     divided by each line's width in ems); the script above makes them exact. */
   .hero__fit {
     container-type: inline-size;
   }
 
-  @media (min-width: 56rem) {
-    .hero h1 {
-      max-width: none;
-      white-space: nowrap;
-      font-size: calc(100cqi / 27.2);
-      line-height: 1.05;
-    }
+  .hero h1 {
+    font-size: clamp(2rem, 7.4vw, 3rem);
+    line-height: 1;
   }
 
-  .hero .lede {
-    margin-top: clamp(1.25rem, 3vw, 2rem);
+  .hero__lead,
+  .hero__big {
+    display: block;
+  }
+
+  .hero__big {
+    white-space: nowrap;
+    font-size: calc(100cqi / 5.72);
+    line-height: 0.88;
+    margin-top: 0.04em;
+  }
+
+  .hero__intro {
+    display: grid;
+    gap: 1.75rem;
+    margin-top: clamp(1.5rem, 3vw, 2.25rem);
     margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .sponsors ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem 2.25rem;
+    margin-top: 0.6rem;
+  }
+
+  .sponsors img {
+    display: block;
+    height: 2.25rem;
+    width: auto;
+  }
+
+  @media (min-width: 56rem) {
+    .hero__lead {
+      white-space: nowrap;
+      font-size: calc(100cqi / 21.8);
+    }
+
+    .hero__intro {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 3rem;
+      align-items: end;
+    }
   }
 
   .split {

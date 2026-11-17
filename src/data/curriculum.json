@@ -10,7 +10,25 @@
     "lede": "The apprenticeship combines 30 hours a week of work at 3F Construction with 10–15 hours of study. Each lesson is then put to use on a job the company is building.",
     "description": "A 30-month apprenticeship in real estate development and construction management: part-time work at 3F Construction, paired with coursework used on live jobs.",
     "title": "Real estate development and construction management apprenticeship | Spark-DO",
-    "company": "3F Construction"
+    "company": "3F Construction",
+    "headlineLines": [
+      "Real estate development and construction management",
+      "apprenticeship"
+    ],
+    "sponsors": [
+      {
+        "name": "3F Construction",
+        "logo": "/sponsors/3f-construction.png",
+        "width": 274,
+        "height": 64
+      },
+      {
+        "name": "Monroe Residential Partners",
+        "logo": "/sponsors/monroe-residential-partners.png",
+        "width": 216,
+        "height": 64
+      }
+    ]
   },
   "phases": [
     {
