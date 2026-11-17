@@ -1,0 +1,67 @@
+<!doctype html>
+<!-- Source for public/og.png (1200 x 630). Rendered by scripts/make-og.mjs. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../node_modules/@fontsource-variable/big-shoulders/opsz.css" />
+    <link rel="stylesheet" href="../node_modules/@fontsource-variable/ibm-plex-sans/wght.css" />
+    <style>
+      * { box-sizing: border-box; margin: 0; }
+      html, body { width: 1200px; height: 630px; overflow: hidden; }
+      body {
+        background: #f4f6f8;
+        color: #0f1b33;
+        font-family: 'IBM Plex Sans Variable', sans-serif;
+        padding: 52px 64px 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .wordmark {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font: 800 34px/1 'Big Shoulders Variable', sans-serif;
+        letter-spacing: 0.01em;
+      }
+      .diamond { width: 20px; height: 20px; background: #f0591a; transform: rotate(45deg); }
+      h1 {
+        margin-top: 34px;
+        font: 800 86px/0.95 'Big Shoulders Variable', sans-serif;
+        max-width: 1000px;
+      }
+      .chart { margin-top: auto; padding-bottom: 46px; }
+      .axis { border-bottom: 3px solid #0f1b33; margin-bottom: 14px; }
+      .row {
+        display: grid;
+        grid-template-columns: repeat(30, 1fr);
+        height: 24px;
+        margin-top: 10px;
+        background-image: repeating-linear-gradient(to right, #c9d0db 0, #c9d0db 1px, transparent 1px, transparent calc(100% / 30));
+      }
+      .bar { position: relative; background: #2456c9; }
+      .bar::after {
+        content: '';
+        position: absolute;
+        right: -11px;
+        top: 1px;
+        width: 22px;
+        height: 22px;
+        background: #f0591a;
+        outline: 4px solid #f4f6f8;
+        transform: rotate(45deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wordmark"><span class="diamond"></span>Spark-DO</div>
+    <h1>A 30-month apprenticeship in real estate development and construction management</h1>
+    <div class="chart">
+      <div class="axis"></div>
+      <div class="row"><span class="bar" style="grid-column: 1 / 6"></span></div>
+      <div class="row"><span class="bar" style="grid-column: 6 / 11"></span></div>
+      <div class="row"><span class="bar" style="grid-column: 11 / 17"></span></div>
+      <div class="row"><span class="bar" style="grid-column: 17 / 24"></span></div>
+      <div class="row"><span class="bar" style="grid-column: 24 / 31"></span></div>
+    </div>
+  </body>
+</html>

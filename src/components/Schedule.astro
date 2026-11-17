@@ -1,0 +1,200 @@
+---
+// The whole program drawn as a bar chart schedule: one bar per phase,
+// a diamond where each phase's milestone falls.
+interface Phase {
+  n: number;
+  title: string;
+  months: number[];
+  milestoneShort: string;
+}
+
+interface Props {
+  phases: Phase[];
+  months: number;
+  startLabel: string;
+}
+
+const { phases, months, startLabel } = Astro.props;
+const ticks = [...phases.map((p) => p.months[0]), months];
+---
+
+<figure class="schedule" style={`--months:${months}`}>
+  <figcaption class="small">
+    The {months} months as a bar chart schedule. A diamond marks the milestone that closes each phase. Month 1 is {
+      startLabel
+    }.
+  </figcaption>
+
+  <div class="schedule__axis" aria-hidden="true">
+    <span class="schedule__axis-label small">Month</span>
+    <div class="schedule__grid">
+      {ticks.map((t) => <span class="tick" style={`grid-column:${t}`}>{t}</span>)}
+    </div>
+  </div>
+
+  <ol class="schedule__rows">
+    {
+      phases.map((p, i) => (
+        <li class="row" style={`--i:${i}`}>
+          <div class="row__label">
+            <a href={`#phase-${p.n}`}>
+              <span class="row__n">{p.n}</span>
+              {p.title}
+            </a>
+            <p class="small">
+              Months {p.months[0]}–{p.months[1]}
+            </p>
+          </div>
+          <div class="row__track">
+            <div class="schedule__grid">
+              <span class="bar" style={`grid-column:${p.months[0]} / ${p.months[1] + 1}`} />
+            </div>
+            <p class="row__milestone small">
+              <span class="diamond" aria-hidden="true" />
+              {p.milestoneShort}
+            </p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+</figure>
+
+<style>
+  .schedule {
+    margin: 0;
+    --label: 15.5rem;
+  }
+
+  figcaption {
+    max-width: 38rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .schedule__grid {
+    display: grid;
+    grid-template-columns: repeat(var(--months), minmax(0, 1fr));
+    align-items: center;
+  }
+
+  .schedule__axis {
+    display: grid;
+    align-items: end;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 0.3rem;
+  }
+
+  .schedule__axis-label {
+    display: none;
+  }
+
+  .tick {
+    grid-row: 1;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1;
+  }
+
+  .tick:last-child {
+    text-align: right;
+  }
+
+  .row {
+    display: grid;
+    gap: 0.6rem;
+    padding-block: 1.1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .row__label a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.05;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .row__label a:hover {
+    color: var(--chalk);
+    text-decoration: underline;
+  }
+
+  .row__n {
+    color: var(--chalk);
+    min-width: 0.7em;
+  }
+
+  .row__label .small {
+    padding-left: 1.5rem;
+  }
+
+  /* Faint month lines behind every bar, like the grid on a printed schedule. */
+  .row__track .schedule__grid {
+    background-image: repeating-linear-gradient(
+      to right,
+      var(--rule) 0,
+      var(--rule) 1px,
+      transparent 1px,
+      transparent calc(100% / var(--months))
+    );
+    padding-block: 0.35rem;
+  }
+
+  .bar {
+    position: relative;
+    height: 1.5rem;
+    background: var(--chalk);
+    transform-origin: left center;
+    animation: draw 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation-delay: calc(var(--i) * 0.16s + 0.15s);
+  }
+
+  .bar::after {
+    content: '';
+    position: absolute;
+    right: -0.6rem;
+    top: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    margin-top: -0.6rem;
+    background: var(--flag);
+    outline: 3px solid var(--paper);
+    transform: rotate(45deg);
+  }
+
+  .row__milestone {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 0.45rem;
+    color: var(--ink);
+  }
+
+  @keyframes draw {
+    from {
+      transform: scaleX(0);
+    }
+  }
+
+  @media (min-width: 54rem) {
+    .schedule__axis,
+    .row {
+      grid-template-columns: var(--label) minmax(0, 1fr);
+      column-gap: 1.5rem;
+    }
+
+    .schedule__axis-label {
+      display: block;
+    }
+
+    .row {
+      align-items: start;
+      gap: 0 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,382 @@
+---
+import Base from '../../layouts/Base.astro';
+import DayStrip from '../../components/DayStrip.astro';
+import semester from '../../data/semester-2027-spring.json';
+import { rich } from '../../lib/rich.js';
+import { SEMESTER_TITLE, semesterIntro } from '../../lib/content.js';
+
+const checkpointDays = new Set(semester.checkpoints.map((c) => c.iso));
+const courseUrl = (n: number) => semester.courses.find((c) => c.n === n)!.url;
+const firstWeekOf = (course: number) => semester.weeks.find((w) => w.days.some((d) => d.course === course))!.n;
+---
+
+<Base
+  markdown="/semester/2027-spring.md"
+  breadcrumb={SEMESTER_TITLE}
+  title="Spring 2027 semester, day by day | Spark-DO"
+  description="Phase 1 of the apprenticeship: 18 weeks and 54 office days of Columbia construction management coursework, each paired with a task on a live project."
+>
+  <section class="intro">
+    <div class="wrap">
+      <p class="small"><a href="/">The 30-month plan</a>, phase 1</p>
+      <h1>{SEMESTER_TITLE}</h1>
+      <div class="intro__grid">
+        <div class="prose">
+          <p class="lede">{semesterIntro.lede}</p>
+          {semesterIntro.body.map((p) => <p>{p}</p>)}
+        </div>
+        <div>
+          <DayStrip semester={semester} href="" />
+        </div>
+      </div>
+
+      <nav class="courses" aria-label="Courses">
+        <ol>
+          {
+            semester.courses.map((c) => (
+              <li>
+                <a href={`#week-${firstWeekOf(c.n)}`}>
+                  <span class="courses__n">{c.n}</span>
+                  <span>
+                    <strong>{c.title}</strong>
+                    <span class="small">
+                      {c.hours} hours, {c.dates}
+                    </span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  {
+    semester.weeks.map((w) => (
+      <section class="band week" id={`week-${w.n}`}>
+        <div class="wrap week__grid">
+          <header class="week__head">
+            <h2>Week {w.n}</h2>
+            <p class="week__dates">{w.dates}</p>
+            <p class="small">{w.title}</p>
+          </header>
+
+          <div class="week__main">
+            <ul class="modules">
+              {w.modules.map((m) => (
+                <li>
+                  <p class="modules__title">
+                    <a href={courseUrl(m.course)}>
+                      Course {m.course}, module {m.module}: {m.title}
+                    </a>
+                    <span class="small">{[m.hours, m.note].filter(Boolean).join(', ')}</span>
+                  </p>
+                  {m.summary && <p class="small">{m.summary}</p>}
+                </li>
+              ))}
+            </ul>
+
+            <table class="days">
+              <thead>
+                <tr>
+                  <th scope="col">Day</th>
+                  <th scope="col">Two hours of coursework</th>
+                  <th scope="col">One hour on the job</th>
+                </tr>
+              </thead>
+              <tbody>
+                {w.days.map((d) => (
+                  <tr id={`day-${d.n}`} class:list={{ 'is-checkpoint': checkpointDays.has(d.iso) }}>
+                    <th scope="row">
+                      <span class="days__n">
+                        {checkpointDays.has(d.iso) && <span class="diamond" aria-hidden="true" />}
+                        Day {d.n}
+                      </span>
+                      <span class="small">{d.date}</span>
+                    </th>
+                    <td data-label="Two hours of coursework" set:html={rich(d.coursework)} />
+                    <td data-label="One hour on the job" set:html={rich(d.practical)} />
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="band band--sheet">
+    <div class="wrap">
+      <h2>Checkpoints</h2>
+      <ol class="checkpoints">
+        {
+          semester.checkpoints.map((c) => (
+            <li>
+              <p class="checkpoints__date">
+                <span class="diamond" aria-hidden="true" />
+                {c.date}
+              </p>
+              <p>
+                <strong>{c.title}</strong>
+              </p>
+              <p>{c.presents}</p>
+            </li>
+          ))
+        }
+      </ol>
+      <p class="small checkpoints__note">{semesterIntro.checkIn}</p>
+      <p><a class="button" href="/">Back to the 30-month plan</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .intro {
+    padding-block: clamp(2rem, 5vw, 4rem) clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .intro h1 {
+    margin-top: 0.75rem;
+    font-size: clamp(2.6rem, 7vw, 5.25rem);
+  }
+
+  .intro__grid {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .courses {
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+    border-top: 2px solid var(--ink);
+  }
+
+  .courses ol {
+    display: grid;
+  }
+
+  .courses li {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .courses a {
+    display: flex;
+    gap: 0.9rem;
+    align-items: baseline;
+    padding-block: 0.8rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .courses a:hover strong {
+    color: var(--chalk);
+    text-decoration: underline;
+  }
+
+  .courses__n {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.6rem;
+    line-height: 1;
+    color: var(--chalk);
+  }
+
+  .courses strong {
+    display: block;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  /* Weeks */
+  .week:nth-of-type(odd) {
+    background: var(--sheet);
+  }
+
+  .week {
+    padding-block: clamp(2.25rem, 5vw, 3.5rem);
+  }
+
+  .week__grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .week__dates {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin-top: 0.25rem;
+  }
+
+  .modules {
+    display: grid;
+    gap: 0.9rem;
+    max-width: 46rem;
+  }
+
+  .modules__title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.1rem 0.75rem;
+    align-items: baseline;
+    font-weight: 600;
+  }
+
+  .modules__title .small {
+    font-weight: 400;
+  }
+
+  .days {
+    width: 100%;
+    margin-top: 1.75rem;
+    border-collapse: collapse;
+    border-top: 2px solid var(--ink);
+  }
+
+  .days thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .days tr {
+    display: grid;
+    gap: 0.75rem;
+    padding-block: 1.1rem;
+    border-bottom: 1px solid var(--rule);
+    scroll-margin-top: 5rem;
+  }
+
+  .days tr:target {
+    box-shadow: inset 4px 0 0 var(--flag);
+    padding-left: 1rem;
+  }
+
+  .days th,
+  .days td {
+    padding: 0;
+    text-align: left;
+    font-weight: 400;
+    vertical-align: top;
+  }
+
+  .days th[scope='row'] {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .days__n {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  .days td::before {
+    content: attr(data-label);
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .checkpoints {
+    margin-top: 1.5rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  .checkpoints li {
+    display: grid;
+    gap: 0.25rem;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .checkpoints__date {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+
+  .checkpoints__note {
+    max-width: var(--measure);
+    margin-block: 1.5rem 2rem;
+  }
+
+  @media (min-width: 54rem) {
+    .intro__grid {
+      grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .courses ol {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 0 1.5rem;
+    }
+
+    .courses li {
+      border-bottom: 0;
+    }
+
+    .week__grid {
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+
+    .week__head {
+      position: sticky;
+      top: 5rem;
+      align-self: start;
+    }
+
+    .days thead {
+      position: static;
+      width: auto;
+      height: auto;
+      clip-path: none;
+    }
+
+    .days thead tr {
+      padding-block: 0.6rem;
+    }
+
+    .days thead th {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .days tr {
+      grid-template-columns: 7.5rem minmax(0, 1fr) minmax(0, 1.25fr);
+      gap: 1.75rem;
+    }
+
+    .days th[scope='row'] {
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .days td::before {
+      content: none;
+    }
+
+    .checkpoints li {
+      grid-template-columns: 11rem minmax(0, 18rem) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: baseline;
+    }
+  }
+</style>

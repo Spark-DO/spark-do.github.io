@@ -1,0 +1,404 @@
+---
+import Base from '../layouts/Base.astro';
+import Schedule from '../components/Schedule.astro';
+import DayStrip from '../components/DayStrip.astro';
+import curriculum from '../data/curriculum.json';
+import semester from '../data/semester-2027-spring.json';
+import { rich } from '../lib/rich.js';
+import { SEMESTER_PATH, stats, sampleDay, semesterSummary, checkpointsNote } from '../lib/content.js';
+
+const { program, phases, threads, sections } = curriculum;
+const semesterHref = SEMESTER_PATH;
+
+const schema = [
+  {
+    '@type': 'EducationalOccupationalProgram',
+    name: program.headline,
+    description: program.description,
+    url: new URL('/', Astro.site).href,
+    programType: 'Apprenticeship',
+    educationalProgramMode: 'part-time',
+    timeToComplete: `P${program.months}M`,
+    startDate: program.starts,
+    occupationalCategory: 'Real estate development and construction management',
+    provider: { '@type': 'Organization', name: program.company },
+    hasCourse: semester.courses.map((c) => ({
+      '@type': 'Course',
+      name: c.title,
+      url: c.url,
+      description: `Course ${c.n} of Columbia University's Construction Management specialization on Coursera, about ${c.hours} hours.`,
+      provider: { '@type': 'CollegeOrUniversity', name: 'Columbia University' },
+    })),
+  },
+];
+---
+
+<Base title={program.title} description={program.description} markdown="/index.md" schema={schema}>
+  <section class="hero">
+    <div class="wrap">
+      <h1>{program.headline}</h1>
+      <p class="lede">{program.lede}</p>
+      <Schedule phases={phases} months={program.months} startLabel="January 2027" />
+    </div>
+  </section>
+
+  <section class="band band--sheet" id="how">
+    <div class="wrap split">
+      <h2>{sections.how.title}</h2>
+      <div class="prose">
+        {sections.how.body.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="phases">
+    <div class="wrap">
+      <h2>{sections.phases.title}</h2>
+      <ol class="phases">
+        {
+          phases.map((p) => (
+            <li class="phase" id={`phase-${p.n}`}>
+              <p class="phase__when">
+                <span class="phase__n">{p.n}</span>
+                Months {p.months[0]}–{p.months[1]}
+              </p>
+              <div class="phase__body">
+                <h3>{p.title}</h3>
+                <p class="small">
+                  {p.weeklyHours} hours a week: {p.split}.
+                </p>
+                <ul class="phase__study">
+                  {p.study.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+                {p.semester && (
+                  <p>
+                    <a href={p.semester}>See this phase planned day by day</a>
+                  </p>
+                )}
+              </div>
+              <div class="phase__milestone">
+                <p class="phase__milestone-label">
+                  <span class="diamond" aria-hidden="true" />
+                  Milestone
+                </p>
+                <p>{p.milestone}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band--sheet" id="semester">
+    <div class="wrap">
+      <div class="split">
+        <h2>{sections.semester.title}</h2>
+        <div class="prose">
+          {semesterSummary.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+
+      <div class="semester">
+        <article class="sample">
+          <h3>A sample day: {sampleDay.date}, day {sampleDay.n} of {stats.days}</h3>
+          <dl>
+            <div>
+              <dt>Two hours of coursework</dt>
+              <dd set:html={rich(sampleDay.coursework)} />
+            </div>
+            <div>
+              <dt>One hour on the job</dt>
+              <dd set:html={rich(sampleDay.practical)} />
+            </div>
+          </dl>
+        </article>
+
+        <div class="semester__strip">
+          <h3>All {stats.days} days</h3>
+          <DayStrip semester={semester} href={semesterHref} />
+        </div>
+      </div>
+
+      <h3 class="checkpoints__title">Five courses, five presentations</h3>
+      <p class="small checkpoints__note">{checkpointsNote}</p>
+      <ol class="checkpoints">
+        {
+          semester.checkpoints.map((c) => {
+            const course = semester.courses.find((x) => x.n === c.course)!;
+            return (
+              <li class="checkpoint">
+                <p class="checkpoint__date">
+                  <span class="diamond" aria-hidden="true" />
+                  {c.date.split(' ').slice(1).join(' ')}
+                </p>
+                <div>
+                  <p class="checkpoint__course">
+                    <a href={course.url}>{course.title}</a>
+                  </p>
+                  <p class="small">
+                    {course.hours} hours, {course.dates}
+                  </p>
+                </div>
+                <p class="checkpoint__presents">{c.presents}</p>
+              </li>
+            );
+          })
+        }
+      </ol>
+      <p class="semester__cta">
+        <a class="button" href={semesterHref}>Read the full Spring 2027 schedule</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="band" id="threads">
+    <div class="wrap">
+      <div class="split">
+        <h2>{sections.threads.title}</h2>
+        <div class="prose">
+          {sections.threads.body.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+      <ul class="threads">
+        {
+          threads.map((t) => (
+            <li>
+              <h3>{t.title}</h3>
+              <p>{t.body}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band--sheet" id="yours">
+    <div class="wrap split">
+      <h2>{sections.family.title}</h2>
+      <div class="prose">
+        {sections.family.body.map((p) => <p>{p}</p>)}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(3rem, 7vw, 5.5rem);
+  }
+
+  .hero h1 {
+    max-width: 19ch;
+  }
+
+  .hero .lede {
+    margin-top: clamp(1.25rem, 3vw, 2rem);
+    margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .split {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .split h2 {
+    max-width: 16ch;
+  }
+
+  /* Phases */
+  .phases {
+    margin-top: clamp(1.5rem, 4vw, 3rem);
+    border-top: 2px solid var(--ink);
+  }
+
+  .phase {
+    display: grid;
+    gap: 1rem;
+    padding-block: clamp(1.75rem, 4vw, 2.75rem);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .phase__when {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+
+  .phase__n {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--chalk);
+  }
+
+  .phase__body > * + * {
+    margin-top: 0.75rem;
+  }
+
+  .phase__study {
+    max-width: var(--measure);
+  }
+
+  .phase__study li {
+    position: relative;
+    padding-left: 1.1rem;
+  }
+
+  .phase__study li + li {
+    margin-top: 0.4rem;
+  }
+
+  .phase__study li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 0.5rem;
+    height: 2px;
+    background: var(--chalk);
+  }
+
+  .phase__milestone {
+    align-self: start;
+    padding: 1rem 1.15rem;
+    background: var(--sheet);
+    border-left: 4px solid var(--flag);
+  }
+
+  .phase__milestone-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  /* Semester */
+  .semester {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .sample {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    background: var(--ink);
+    color: #fff;
+  }
+
+  .sample dl {
+    margin: 1.25rem 0 0;
+    display: grid;
+    gap: 1.1rem;
+  }
+
+  .sample dt {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #a9bdf0;
+  }
+
+  .sample dd {
+    margin: 0.15rem 0 0;
+  }
+
+  .semester__strip h3 {
+    margin-bottom: 1rem;
+  }
+
+  .checkpoints__title {
+    margin-top: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .checkpoints__note {
+    margin-top: 0.4rem;
+  }
+
+  .checkpoints {
+    margin-top: 1.25rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  .checkpoint {
+    display: grid;
+    gap: 0.4rem;
+    padding-block: 1.1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .checkpoint__date {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .checkpoint__course {
+    font-weight: 600;
+  }
+
+  .semester__cta {
+    margin-top: 2rem;
+  }
+
+  /* Threads */
+  .threads {
+    display: grid;
+    gap: 1.75rem;
+    margin-top: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .threads li {
+    padding-top: 1rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  .threads h3 {
+    margin-bottom: 0.4rem;
+  }
+
+  @media (min-width: 54rem) {
+    .split {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .phase {
+      grid-template-columns: 11rem minmax(0, 1fr) 19rem;
+      gap: 2rem;
+    }
+
+    .phase__when {
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .semester {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .checkpoint {
+      grid-template-columns: 9rem minmax(0, 17rem) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: baseline;
+    }
+
+    .threads {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2.5rem;
+    }
+  }
+</style>

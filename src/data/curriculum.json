@@ -1,0 +1,146 @@
+{
+  "program": {
+    "name": "Spark-DO",
+    "field": "real estate development",
+    "months": 30,
+    "starts": "2027-01-11",
+    "workHours": "30",
+    "studyHours": "10–15",
+    "headline": "A 30-month apprenticeship in real estate development and construction management",
+    "lede": "The apprenticeship combines 30 hours a week of work at 3F Construction with 10–15 hours of study. Each lesson is then put to use on a job the company is building.",
+    "description": "A 30-month apprenticeship in real estate development and construction management: part-time work at 3F Construction, paired with coursework used on live jobs.",
+    "title": "Real estate development & construction management apprenticeship | Spark-DO",
+    "company": "3F Construction"
+  },
+  "phases": [
+    {
+      "n": 1,
+      "title": "Project management",
+      "months": [
+        1,
+        5
+      ],
+      "weeklyHours": "10",
+      "split": "8 hours of coursework and 2 applying it on a live company job",
+      "study": [
+        "Columbia University's Construction Management specialization on Coursera: five courses, about 110 hours by Coursera's estimate",
+        "Each course is applied to one active job: reading the schedule, tracking a budget line, sitting in on owner and subcontractor meetings"
+      ],
+      "milestone": "Earns the certificate, then builds and presents a schedule and cost-tracking sheet for an active project.",
+      "semester": "/semester/2027-spring/",
+      "milestoneShort": "Certificate and a live project schedule"
+    },
+    {
+      "n": 2,
+      "title": "Illinois broker's license",
+      "months": [
+        6,
+        10
+      ],
+      "weeklyHours": "10–12",
+      "split": "8–10 hours of pre-license coursework and exam prep, 2 on an algebra refresher",
+      "study": [
+        "Illinois broker pre-license course, about 75 hours (requirements are set by IDFPR and change, so they are confirmed before the student enrolls)",
+        "State exam and license application",
+        "Khan Academy algebra refresher on the side"
+      ],
+      "milestone": "Becomes a licensed Illinois broker, then tours and writes up three comparable properties.",
+      "milestoneShort": "Illinois broker's license"
+    },
+    {
+      "n": 3,
+      "title": "Finance, statistics and economics",
+      "months": [
+        11,
+        16
+      ],
+      "weeklyHours": "12–15",
+      "split": "5 hours of statistics and economics, 5 of MIT finance, 2–5 of pro forma modeling",
+      "study": [
+        "Khan Academy: Statistics and Probability, Microeconomics, Macroeconomics",
+        "MIT OpenCourseWare 15.401, Finance Theory I",
+        "An Excel real estate pro forma (NOI, cap rates, IRR, debt service) built on one of the company's past deals"
+      ],
+      "milestone": "Underwrites one deal independently and reviews it with the mentor.",
+      "milestoneShort": "First deal underwritten independently"
+    },
+    {
+      "n": 4,
+      "title": "Software and prompt engineering",
+      "months": [
+        17,
+        23
+      ],
+      "weeklyHours": "12–15",
+      "split": "8–10 hours of software and prompt engineering, 4–5 of real estate learning mixed in",
+      "study": [
+        "Harvard CS50 for programming fundamentals",
+        "Python for data work",
+        "Prompt engineering and AI tooling, used to build small tools: a deal analyzer, an RFI and daily-log helper for the field",
+        "Mixed in: construction finance and draw schedules, entitlement and permitting in Chicago, and reading real deal documents from company projects"
+      ],
+      "milestone": "Ships one internal tool that the company actually uses.",
+      "milestoneShort": "An internal tool in use"
+    },
+    {
+      "n": 5,
+      "title": "Network engineering and capstone",
+      "months": [
+        24,
+        30
+      ],
+      "weeklyHours": "12–15",
+      "split": "three months of networking alongside real estate law, leasing and market analysis, then four months on the capstone deal",
+      "study": [
+        "Cisco Networking Academy or CompTIA Network+ prep, with hands-on work configuring the network for a building or the office",
+        "Mixed in: real estate law and contracts, property management and leasing, market analysis for Chicago neighborhoods, and shadowing the mentor in lender and investor meetings",
+        "Capstone: source, underwrite, schedule and pitch a small real development deal, with the mentor as the investor"
+      ],
+      "milestone": "Delivers a capstone investment memo and presents it.",
+      "milestoneShort": "Capstone deal pitched"
+    }
+  ],
+  "threads": [
+    {
+      "title": "Law and zoning",
+      "body": "Real estate law and zoning basics every week: the Chicago zoning code and contracts."
+    },
+    {
+      "title": "One book a month",
+      "body": "One development or finance book each month."
+    },
+    {
+      "title": "Monthly check-in",
+      "body": "Fifteen minutes on progress, hours actually spent, and whether the pace needs to change."
+    }
+  ],
+  "sections": {
+    "how": {
+      "title": "Every lesson gets used on a real job",
+      "body": [
+        "The plan pairs part-time work at 3F Construction with part-time study, and ties the two together. Each course is matched to tasks on a project the company has under way.",
+        "When the course covers critical path scheduling, the student finds the critical path on a project 3F Construction is building. When it covers construction loans, the student reads the term sheet for one of the company's loans and works out a month of interest.",
+        "The order is deliberate: early wins first, heavier academics later. Each phase ends with something the student has to produce and present to a mentor before the next one starts."
+      ]
+    },
+    "phases": {
+      "title": "The five phases"
+    },
+    "semester": {
+      "title": "The first semester is planned to the day"
+    },
+    "threads": {
+      "title": "Three things that never stop",
+      "body": [
+        "An hour or two a week, in every phase, goes to the same three habits."
+      ]
+    },
+    "family": {
+      "title": "The same frame would work for another family",
+      "body": [
+        "Nothing about the structure is specific to real estate. It is phases, weeks, daily tasks and milestones, with every task tied to work the family business is already doing.",
+        "A family with a different trade could keep the frame and change the content: their own courses, their own jobs, their own milestones."
+      ]
+    }
+  }
+}

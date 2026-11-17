@@ -1,0 +1,221 @@
+---
+import '../styles/global.css';
+import displayFont from '@fontsource-variable/big-shoulders/files/big-shoulders-latin-opsz-normal.woff2?url';
+import textFont from '@fontsource-variable/ibm-plex-sans/files/ibm-plex-sans-latin-wght-normal.woff2?url';
+import curriculum from '../data/curriculum.json';
+import { SEMESTER_PATH, footnote } from '../lib/content.js';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Path of this page's Markdown version, if it has one. */
+  markdown?: string;
+  /** Name of this page in the breadcrumb trail; omit on the home page. */
+  breadcrumb?: string;
+  /** Extra schema.org nodes for this page. */
+  schema?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const { title, description, markdown, breadcrumb, schema = [], noindex = false } = Astro.props;
+const { name } = curriculum.program;
+const site = Astro.site!;
+const canonical = new URL(Astro.url.pathname, site).href;
+const home = new URL('/', site).href;
+const image = new URL('/og.png', site).href;
+const imageAlt = 'The 30-month plan drawn as a bar chart schedule: five phases, each ending in a milestone.';
+
+const graph = [
+  {
+    '@type': 'WebSite',
+    '@id': `${home}#website`,
+    url: home,
+    name,
+    description: curriculum.program.description,
+    inLanguage: 'en',
+  },
+  {
+    '@type': 'WebPage',
+    '@id': canonical,
+    url: canonical,
+    name: title,
+    description,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${home}#website` },
+    primaryImageOfPage: { '@type': 'ImageObject', url: image, width: 1200, height: 630 },
+  },
+  ...(breadcrumb
+    ? [
+        {
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'The 30-month plan', item: home },
+            { '@type': 'ListItem', position: 2, name: breadcrumb, item: canonical },
+          ],
+        },
+      ]
+    : []),
+  ...schema,
+];
+const jsonLd = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }).replace(/</g, '\\u003c');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {
+      noindex ? (
+        <meta name="robots" content="noindex" />
+      ) : (
+        <>
+          <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+          <link rel="canonical" href={canonical} />
+        </>
+      )
+    }
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {markdown && <link rel="alternate" type="text/markdown" href={markdown} title="This page as Markdown" />}
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Guide for language models" />
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={textFont} as="font" type="font/woff2" crossorigin />
+    <meta name="theme-color" content="#0f1b33" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={name} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <script type="application/ld+json" set:html={jsonLd} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="masthead">
+      <div class="wrap masthead__inner">
+        <a class="wordmark" href="/"><span class="diamond" aria-hidden="true"></span>{name}</a>
+        <nav aria-label="Site">
+          <a href="/#phases">The five phases</a>
+          <a href={SEMESTER_PATH}>Spring 2027</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="colophon">
+      <div class="wrap colophon__inner">
+        <p class="wordmark"><span class="diamond" aria-hidden="true"></span>{name}</p>
+        <div>
+          <p class="small">{footnote}</p>
+          <p class="small colophon__links">
+            {markdown && <a href={markdown}>This page as Markdown</a>}
+            <a href="/llms.txt">llms.txt</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .masthead {
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    position: sticky;
+    top: 0;
+    z-index: 5;
+  }
+
+  .masthead__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 3.5rem;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: 1.45rem;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  nav {
+    display: flex;
+    gap: clamp(0.9rem, 3vw, 2rem);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  nav a {
+    color: var(--ink);
+    text-decoration: none;
+    padding-block: 0.4rem;
+  }
+
+  nav a:hover {
+    color: var(--chalk);
+    text-decoration: underline;
+  }
+
+  .colophon {
+    background: var(--ink);
+    color: #fff;
+    padding-block: 2.5rem;
+  }
+
+  .colophon__inner {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .colophon .wordmark {
+    color: #fff;
+  }
+
+  .colophon .small {
+    color: #b9c4d8;
+    max-width: 44rem;
+  }
+
+  .colophon__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .colophon__links a {
+    color: #fff;
+  }
+
+  @media (min-width: 48rem) {
+    .colophon__inner {
+      grid-template-columns: 14rem 1fr;
+      align-items: start;
+    }
+  }
+</style>

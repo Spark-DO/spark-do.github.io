@@ -1,0 +1,124 @@
+---
+// Every office day of a semester as one square: a column per week,
+// a row per weekday. Checkpoint days carry the milestone diamond.
+import { plain } from '../lib/rich.js';
+
+interface Props {
+  semester: any;
+  href: string;
+}
+
+const { semester, href } = Astro.props;
+const checkpointDays = new Set(semester.checkpoints.map((c: any) => c.iso));
+const weekdays = semester.weeks[0].days.map((d: any) => d.date.split(' ')[0]);
+
+let lastMonth = '';
+const monthMarks = semester.weeks.map((w: any) => {
+  const month = w.days[0].date.split(' ')[1];
+  const mark = month === lastMonth ? '' : month;
+  lastMonth = month;
+  return mark;
+});
+---
+
+<div class="strip" style={`--weeks:${semester.weeks.length}`}>
+  <div class="strip__months small" aria-hidden="true">
+    <span></span>
+    {monthMarks.map((m: string) => <span>{m}</span>)}
+  </div>
+  {
+    weekdays.map((weekday: string, row: number) => (
+      <div class="strip__row">
+        <span class="strip__weekday small" aria-hidden="true">
+          {weekday}
+        </span>
+        {semester.weeks.map((w: any) => {
+          const d = w.days[row];
+          const checkpoint = checkpointDays.has(d.iso);
+          return (
+            <a
+              href={`${href}#day-${d.n}`}
+              class:list={['cell', `cell--${d.course % 2 ? 'a' : 'b'}`, { 'cell--checkpoint': checkpoint }]}
+              aria-label={`Day ${d.n}, ${d.date}${checkpoint ? ', checkpoint' : ''}`}
+              title={`Day ${d.n}, ${d.date}: ${plain(d.practical)}`}
+            />
+          );
+        })}
+      </div>
+    ))
+  }
+  <p class="strip__key small">
+    <span><i class="swatch swatch--a"></i><i class="swatch swatch--b"></i>The shade changes when a new course starts</span>
+    <span><span class="diamond" aria-hidden="true"></span>Checkpoint presentation</span>
+  </p>
+</div>
+
+<style>
+  .strip {
+    --gap: clamp(2px, 0.45vw, 5px);
+    display: grid;
+    gap: var(--gap);
+  }
+
+  .strip__months,
+  .strip__row {
+    display: grid;
+    grid-template-columns: 2.4rem repeat(var(--weeks), minmax(0, 1fr));
+    gap: var(--gap);
+    align-items: center;
+  }
+
+  .strip__months span {
+    white-space: nowrap;
+    overflow: visible;
+  }
+
+  .cell {
+    position: relative;
+    display: block;
+    aspect-ratio: 1;
+    background: var(--chalk);
+  }
+
+  .cell--b {
+    background: #86a3e3;
+  }
+
+  .cell:hover,
+  .cell:focus-visible {
+    background: var(--ink);
+  }
+
+  .cell--checkpoint::after {
+    content: '';
+    position: absolute;
+    inset: 22%;
+    background: var(--flag);
+    outline: 2px solid var(--sheet);
+    transform: rotate(45deg);
+  }
+
+  .strip__key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.75rem;
+    margin-top: 0.9rem;
+  }
+
+  .strip__key > span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .swatch {
+    width: 0.8rem;
+    height: 0.8rem;
+    background: var(--chalk);
+  }
+
+  .swatch--b {
+    background: #86a3e3;
+    margin-left: -0.3rem;
+  }
+</style>

@@ -1,0 +1,1168 @@
+{
+  "year": 2027,
+  "courses": [
+    {
+      "n": 1,
+      "title": "Construction Project Management",
+      "url": "https://www.coursera.org/learn/construction-project-management",
+      "hours": 30,
+      "firstDay": 1,
+      "lastDay": 15,
+      "dates": "Jan 11 – Feb 12",
+      "checkpoint": "Fri Feb 12"
+    },
+    {
+      "n": 2,
+      "title": "Construction Scheduling",
+      "url": "https://www.coursera.org/learn/construction-scheduling",
+      "hours": 26,
+      "firstDay": 16,
+      "lastDay": 28,
+      "dates": "Feb 15 – Mar 15",
+      "checkpoint": "Mon Mar 15"
+    },
+    {
+      "n": 3,
+      "title": "Construction Cost Estimating and Cost Control",
+      "url": "https://www.coursera.org/learn/construction-cost-estimating",
+      "hours": 23,
+      "firstDay": 29,
+      "lastDay": 40,
+      "dates": "Mar 17 – Apr 12",
+      "checkpoint": "Mon Apr 12"
+    },
+    {
+      "n": 4,
+      "title": "Construction Finance",
+      "url": "https://www.coursera.org/learn/construction-finance",
+      "hours": 19,
+      "firstDay": 41,
+      "lastDay": 50,
+      "dates": "Apr 14 – May 5",
+      "checkpoint": "Wed May 5"
+    },
+    {
+      "n": 5,
+      "title": "The Construction Industry: The Way Forward",
+      "url": "https://www.coursera.org/learn/construction-industry-forward",
+      "hours": 9,
+      "firstDay": 51,
+      "lastDay": 54,
+      "dates": "May 7 – May 14",
+      "checkpoint": "Fri May 14"
+    }
+  ],
+  "weeks": [
+    {
+      "n": 1,
+      "dates": "Jan 11, 13, 15",
+      "title": "Course 1, Modules 1–2",
+      "modules": [
+        {
+          "course": 1,
+          "module": 1,
+          "title": "Course Overview",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Introduction to the specialization and to this course, glossary, and course policies. Light week-one material."
+        },
+        {
+          "course": 1,
+          "module": 2,
+          "title": "Construction Industry Overview",
+          "hours": "4 hrs",
+          "note": null,
+          "summary": "Industry experts introduce the engineering and construction industry, compare program management, project management, and construction management, contrast construction with manufacturing, and walk through the Engineering-Architecture-Construction (EAC) lifecycle and the cost of change over it."
+        }
+      ],
+      "days": [
+        {
+          "n": 1,
+          "date": "Mon Jan 11",
+          "iso": "2027-01-11",
+          "course": 1,
+          "coursework": "Module 1: course intro videos, glossary, pre-course survey",
+          "practical": "Pick the one active company job to use all semester. Write a one-page summary of its scope: what is being built, where, for whom, rough budget and schedule."
+        },
+        {
+          "n": 2,
+          "date": "Wed Jan 13",
+          "iso": "2027-01-13",
+          "course": 1,
+          "coursework": "Module 2, first half: industry intro, PgM vs PM vs CM, self-check quizzes",
+          "practical": "List every party on the job (owner, architect, engineers, lender, GC, subs, city) and what each does. Note whether the company is acting as GC, CM, or developer on it."
+        },
+        {
+          "n": 3,
+          "date": "Fri Jan 15",
+          "iso": "2027-01-15",
+          "course": 1,
+          "coursework": "Module 2, second half: construction vs manufacturing, EAC lifecycle, cost of change, module quiz",
+          "practical": "Place the job on the EAC lifecycle (design, procurement, construction, closeout). Find one change that happened after design was done and ask the PM what it cost."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "dates": "Jan 18, 20, 22",
+      "title": "Course 1, Modules 3–4",
+      "modules": [
+        {
+          "course": 1,
+          "module": 3,
+          "title": "Project Delivery",
+          "hours": "4 hrs",
+          "note": null,
+          "summary": "The project development cycle, contract types (lump sum, cost-plus, GMP), delivery methods (design-bid-build, design-build, CM at risk, CM as agency, alliance contracting, public-private partnerships), and the basics of surety bonding."
+        },
+        {
+          "course": 1,
+          "module": 4,
+          "title": "Lean Project Delivery",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "An architect explains lean project delivery and lean design behaviors: stripping unnecessary effort, time, and cost out of planning, design, and construction to deliver what the owner values."
+        }
+      ],
+      "days": [
+        {
+          "n": 4,
+          "date": "Mon Jan 18",
+          "iso": "2027-01-18",
+          "course": 1,
+          "coursework": "Module 3, first half: project development cycle, contract types, delivery methods, contracting strategy",
+          "practical": "Read the job's prime contract. Identify the contract type and delivery method. Write down why the owner chose them, then check the answer with the PM."
+        },
+        {
+          "n": 5,
+          "date": "Wed Jan 20",
+          "iso": "2027-01-20",
+          "course": 1,
+          "coursework": "Module 3, second half: CM at risk vs agency, alliance contracting and P3, surety bonds, module quiz",
+          "practical": "Find out whether the job is bonded and what the surety required. List 3 risks the contract shifts onto the contractor."
+        },
+        {
+          "n": 6,
+          "date": "Fri Jan 22",
+          "iso": "2027-01-22",
+          "course": 1,
+          "coursework": "Module 4: lean theory, lean design and delivery, flow, lean quiz",
+          "practical": "Walk the site or sit in a sub meeting looking only for waste: waiting, rework, double handling, excess motion. Write down 3 examples and one fix for each."
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "dates": "Jan 25, 27, 29",
+      "title": "Course 1, Modules 5–7",
+      "modules": [
+        {
+          "course": 1,
+          "module": 5,
+          "title": "Sustainability in the Construction Industry",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Skanska's sustainability director on sustainable development, safety, community involvement, and rating systems, focusing on the Envision rating system."
+        },
+        {
+          "course": 1,
+          "module": 6,
+          "title": "Environment, Health and Safety of Construction Processes",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Skanska's chief environmental officer on EHS practices, barriers to learning and change, safety performance models, and management systems."
+        },
+        {
+          "course": 1,
+          "module": 7,
+          "title": "Building Information Modeling and Technology Trends in Construction",
+          "hours": "3 hrs",
+          "note": null,
+          "summary": "What BIM is, how it is used across the project lifecycle by the construction manager, design manager, and facility manager, and virtual reality in construction management."
+        }
+      ],
+      "days": [
+        {
+          "n": 7,
+          "date": "Mon Jan 25",
+          "iso": "2027-01-25",
+          "course": 1,
+          "coursework": "Module 5: sustainability, safety, community involvement, rating systems, module quiz",
+          "practical": "List every sustainability or energy-code item on the job (insulation, windows, mechanical efficiency, stormwater, Chicago requirements). Ask the mentor whether any rating system was considered and why or why not."
+        },
+        {
+          "n": 8,
+          "date": "Wed Jan 27",
+          "iso": "2027-01-27",
+          "course": 1,
+          "coursework": "Module 6: EHS practices, barriers to change, safety performance models, management systems, EHS quiz",
+          "practical": "Walk the site with the super. Read the site safety plan or last toolbox talk. Note 3 hazards and the control in place for each."
+        },
+        {
+          "n": 9,
+          "date": "Fri Jan 29",
+          "iso": "2027-01-29",
+          "course": 1,
+          "coursework": "Module 7, first part: defining BIM, the role of CM and design management, technology and the CM",
+          "practical": "Open the job's drawing set or model. Find one coordination issue between trades (mechanical vs structure, plumbing vs framing) and ask how it was caught and fixed."
+        }
+      ]
+    },
+    {
+      "n": 4,
+      "dates": "Feb 1, 3, 5",
+      "title": "Course 1, Modules 7–10",
+      "modules": [
+        {
+          "course": 1,
+          "module": 7,
+          "title": "Building Information Modeling and Technology Trends in Construction",
+          "hours": null,
+          "note": "finish",
+          "summary": "Facility management and virtual reality uses of BIM, technology quiz."
+        },
+        {
+          "course": 1,
+          "module": 8,
+          "title": "International View of Construction Projects",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Risk on international development projects: identifying types of risk, cost risks in construction and operations, and the ESPRIT framework for understanding risk."
+        },
+        {
+          "course": 1,
+          "module": 9,
+          "title": "Role of a Construction Manager",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "What makes an effective project manager, building a project organizational chart, methods of contracting, potential project risks, logistics and planning, bidding and leveling sheets, change order and claim management. This is the most hands-on module in the course."
+        },
+        {
+          "course": 1,
+          "module": 10,
+          "title": "Introduction to Project Planning",
+          "hours": "7 hrs",
+          "note": "starts this week",
+          "summary": "Project planning and scheduling, the work breakdown structure (WBS), standard and project coding, estimating activity durations, job logic, and activity relationships."
+        }
+      ],
+      "days": [
+        {
+          "n": 10,
+          "date": "Mon Feb 1",
+          "iso": "2027-02-01",
+          "course": 1,
+          "coursework": "Module 7, finish: facility management, VR, technology quiz. Module 8: international development and project risk",
+          "practical": "Inventory every piece of software and technology the company uses on the job (drawings, scheduling, accounting, field reporting, BIM). Interview one team member about what works and what does not."
+        },
+        {
+          "n": 11,
+          "date": "Wed Feb 3",
+          "iso": "2027-02-03",
+          "course": 1,
+          "coursework": "Module 8, finish: cost risks, ESPRIT framework, quiz. Module 9, first part: effective PM, project org chart, methods of contracting",
+          "practical": "Draw the job's project org chart: owner side, design side, contractor side, with names and roles. Mark who signs off on what."
+        },
+        {
+          "n": 12,
+          "date": "Fri Feb 5",
+          "iso": "2027-02-05",
+          "course": 1,
+          "coursework": "Module 9, finish: project risks, logistics, bidding and leveling, change orders, quiz. Module 10, start: planning and scheduling intro",
+          "practical": "Start a risk register for the job: 5 risks across cost, schedule, and safety, with likelihood, impact, and who owns each. Pull 2 past change orders and trace each from cause to approval."
+        }
+      ]
+    },
+    {
+      "n": 5,
+      "dates": "Feb 8, 10, 12",
+      "title": "Course 1, Module 10 and Course 1 checkpoint",
+      "modules": [
+        {
+          "course": 1,
+          "module": 10,
+          "title": "Introduction to Project Planning",
+          "hours": null,
+          "note": "continued",
+          "summary": "The bulk of the course's hands-on work: building a WBS, coding it, estimating durations, determining job logic, and drawing activity relationships. Two 90-minute peer-reviewed exercises (WBS and job logic diagram) plus a duration work problem and a module quiz."
+        }
+      ],
+      "days": [
+        {
+          "n": 13,
+          "date": "Mon Feb 8",
+          "iso": "2027-02-08",
+          "course": 1,
+          "coursework": "Module 10: planning process, WBS, standard and project coding, WBS exercise",
+          "practical": "Build a 3-level WBS for the job in Excel using the company's cost codes."
+        },
+        {
+          "n": 14,
+          "date": "Wed Feb 10",
+          "iso": "2027-02-10",
+          "course": 1,
+          "coursework": "Module 10: estimating activity duration 1–2, job logic, activity relationships, duration work problem",
+          "practical": "Pick 10 activities from the WBS and estimate durations with crew size and productivity. Compare with the super's numbers and note the gaps."
+        },
+        {
+          "n": 15,
+          "date": "Fri Feb 12",
+          "iso": "2027-02-12",
+          "course": 1,
+          "coursework": "Module 10: job logic diagram exercise, module quiz, post-course survey. **Course 1 complete.**",
+          "practical": "Draw the job logic (which of the 10 activities depends on which). **Checkpoint:** present the scope summary, org chart, risk register, WBS, and logic diagram to the mentor."
+        }
+      ]
+    },
+    {
+      "n": 6,
+      "dates": "Feb 15, 17, 19",
+      "title": "Course 2, Modules 1–5",
+      "modules": [
+        {
+          "course": 2,
+          "module": 1,
+          "title": "Introduction to Construction Scheduling",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Course overview: activity relationships, scheduling procedures, critical path, calendar vs work dates, and uncertainty."
+        },
+        {
+          "course": 2,
+          "module": 2,
+          "title": "Bar",
+          "hours": "Gantt) Charts (1 hr",
+          "note": null,
+          "summary": "Gantt charts as a scheduling tool, their uses, advantages, and disadvantages."
+        },
+        {
+          "course": 2,
+          "module": 3,
+          "title": "Activity Precedence Diagrams",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Activity-on-node (AON) diagrams that graphically represent activities and their relationships, with recommendations and worked examples."
+        },
+        {
+          "course": 2,
+          "module": 4,
+          "title": "Types of Construction Activity Relationships",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Finish-to-start, start-to-start, finish-to-finish, and multiple relationships, and how to show them on a precedence diagram."
+        },
+        {
+          "course": 2,
+          "module": 5,
+          "title": "Forward and Backward Pass Calculations",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Computing earliest and latest dates for every activity and the minimum project duration, with two worked examples and a one-hour quiz."
+        }
+      ],
+      "days": [
+        {
+          "n": 16,
+          "date": "Mon Feb 15",
+          "iso": "2027-02-15",
+          "course": 2,
+          "coursework": "Modules 1–2: course intro, glossary, Gantt charts, Gantt quiz",
+          "practical": "Get the job's current schedule from the PM. Read it as a Gantt chart and write 5 questions about it. Find out who maintains it and how often."
+        },
+        {
+          "n": 17,
+          "date": "Wed Feb 17",
+          "iso": "2027-02-17",
+          "course": 2,
+          "coursework": "Modules 3–4: AON diagrams, activity relationships, relationships quiz",
+          "practical": "Convert the 10 activities from week 5 into an AON diagram. Mark which relationships the real schedule uses (most will be finish-to-start; find at least one that is not)."
+        },
+        {
+          "n": 18,
+          "date": "Fri Feb 19",
+          "iso": "2027-02-19",
+          "course": 2,
+          "coursework": "Module 5: forward and backward pass, examples, quiz",
+          "practical": "Run the forward and backward pass by hand on the 10-activity diagram. Write early start, early finish, late start, late finish on every node."
+        }
+      ]
+    },
+    {
+      "n": 7,
+      "dates": "Feb 22, 24, 26",
+      "title": "Course 2, Modules 6–9",
+      "modules": [
+        {
+          "course": 2,
+          "module": 6,
+          "title": "Critical Path",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "What the critical path is, why it matters, how many there can be, lags, and critical path under start-to-start and finish-to-finish relationships."
+        },
+        {
+          "course": 2,
+          "module": 7,
+          "title": "Activity Floats",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Total float, free float, interfering float, and independent float."
+        },
+        {
+          "course": 2,
+          "module": 8,
+          "title": "Understanding Work Dates and Calendar Dates",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Working days vs calendar days and charting both in a project plan."
+        },
+        {
+          "course": 2,
+          "module": 9,
+          "title": "Activity on Arrow",
+          "hours": "3 hrs",
+          "note": null,
+          "summary": "Drawing activity-on-arrow diagrams, numbering nodes, advanced diagrams, backward pass, and determining project duration; two assignments."
+        }
+      ],
+      "days": [
+        {
+          "n": 19,
+          "date": "Mon Feb 22",
+          "iso": "2027-02-22",
+          "course": 2,
+          "coursework": "Module 6: critical path, lags, SS and FF cases, CPM quiz",
+          "practical": "Identify the critical path on the real job schedule. Confirm with the PM or scheduler whether they agree, and why the schedule shows what it shows."
+        },
+        {
+          "n": 20,
+          "date": "Wed Feb 24",
+          "iso": "2027-02-24",
+          "course": 2,
+          "coursework": "Modules 7–8: floats, work vs calendar dates, floats and calendar quiz",
+          "practical": "Compute total and free float for 5 non-critical activities. Convert 3 activities from work days to calendar dates using the company's calendar (holidays, weather days)."
+        },
+        {
+          "n": 21,
+          "date": "Fri Feb 26",
+          "iso": "2027-02-26",
+          "course": 2,
+          "coursework": "Module 9: activity on arrow videos and first quiz",
+          "practical": "Redraw the 10-activity network as an activity-on-arrow diagram. Check that the project duration matches the AON answer."
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "dates": "Mar 1, 3, 5",
+      "title": "Course 2, Modules 9–12",
+      "modules": [
+        {
+          "course": 2,
+          "module": 9,
+          "title": "Activity on Arrow",
+          "hours": null,
+          "note": "finish",
+          "summary": "Activity diagram and critical path assignment."
+        },
+        {
+          "course": 2,
+          "module": 10,
+          "title": "PERT and Range Estimating",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Program Evaluation and Review Technique for uncertain durations: probability of finishing in a given number of days, worked examples, and range estimating."
+        },
+        {
+          "course": 2,
+          "module": 11,
+          "title": "The Role of the Scheduler in Construction Management",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "An STV scheduler on keeping a project on track and keeping accurate progress records."
+        },
+        {
+          "course": 2,
+          "module": 12,
+          "title": "Linear Construction Operations and Line of Balance",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Scheduling repetitive work (floors, units, roadway) with the line-of-balance method."
+        }
+      ],
+      "days": [
+        {
+          "n": 22,
+          "date": "Mon Mar 1",
+          "iso": "2027-03-01",
+          "course": 2,
+          "coursework": "Module 9, finish: activity diagram and critical path assignment. Module 10: PERT videos",
+          "practical": "For 5 critical activities, ask the super for optimistic, most likely, and pessimistic durations. Compute the PERT expected duration for each."
+        },
+        {
+          "n": 23,
+          "date": "Wed Mar 3",
+          "iso": "2027-03-03",
+          "course": 2,
+          "coursework": "Module 10, finish: discussion. Module 11: role of the scheduler, PERT and scheduler quiz",
+          "practical": "Compute the probability the job finishes by the contract date using the PERT numbers. Sit in on the weekly schedule or sub coordination meeting and note how progress is recorded."
+        },
+        {
+          "n": 24,
+          "date": "Fri Mar 5",
+          "iso": "2027-03-05",
+          "course": 2,
+          "coursework": "Module 12: linear construction, line of balance, LOB quiz and diagram",
+          "practical": "Pick a repetitive scope on the job (units, floors, rooms). Draw a line-of-balance for 2 trades across the units and find where one crew waits on the other."
+        }
+      ]
+    },
+    {
+      "n": 9,
+      "dates": "Mar 8, 10, 12",
+      "title": "Course 2, Modules 13–15",
+      "modules": [
+        {
+          "course": 2,
+          "module": 13,
+          "title": "Technology Applications for Scheduling",
+          "hours": "3 hrs",
+          "note": null,
+          "summary": "Overviews of MS Project and Primavera P6 (critical path, Gantt, importing activities), schedule analysis tools, custom tools, BIM scheduling tools, and integrating model and schedule."
+        },
+        {
+          "course": 2,
+          "module": 14,
+          "title": "Scheduling for Large Programs",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "The integrated master schedule for multi-project programs."
+        },
+        {
+          "course": 2,
+          "module": 15,
+          "title": "Risk Allocation and Planning",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "AECOM's deputy director of risk management on formal risk management, risk profiles, risk assessment, and using risk as a planning and scheduling tool."
+        }
+      ],
+      "days": [
+        {
+          "n": 25,
+          "date": "Mon Mar 8",
+          "iso": "2027-03-08",
+          "course": 2,
+          "coursework": "Module 13, first part: software overview, MS Project, Primavera P6",
+          "practical": "Rebuild the 10-activity schedule in whatever tool the company uses (MS Project, P6, Procore, or Excel). Compare its critical path with the hand calculation."
+        },
+        {
+          "n": 26,
+          "date": "Wed Mar 10",
+          "iso": "2027-03-10",
+          "course": 2,
+          "coursework": "Module 13, finish: schedule analysis, custom tools, BIM tools, technology quiz. Module 14: large programs",
+          "practical": "Update the real schedule against actual progress. Note what slipped and why. Write a 3-week look-ahead."
+        },
+        {
+          "n": 27,
+          "date": "Fri Mar 12",
+          "iso": "2027-03-12",
+          "course": 2,
+          "coursework": "Module 15: risk allocation and planning",
+          "practical": "Build a schedule risk register: 5 schedule risks with likelihood and impact, which activities they hit, and how much contingency each deserves."
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "dates": "Mar 15, 17, 19",
+      "title": "Course 2 finish and Course 3, Modules 1–3",
+      "modules": [
+        {
+          "course": 2,
+          "module": 16,
+          "title": "Lean Design in Construction Scheduling",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Lean time and schedule, flow, lean design and lean scheduling, plus the final quiz on large programs, risk, and lean."
+        },
+        {
+          "course": 3,
+          "module": 1,
+          "title": "Cost Estimating and Cost Control Overview",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Course introduction and glossary."
+        },
+        {
+          "course": 3,
+          "module": 2,
+          "title": "Understanding Design in the Construction Industry",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "A Turner and Townsend project manager on the stages of design in a construction project."
+        },
+        {
+          "course": 3,
+          "module": 3,
+          "title": "Introduction to the Types of Cost Estimates",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Types of estimates, cost indices, and the cost-capacity factor, with a work problem."
+        }
+      ],
+      "days": [
+        {
+          "n": 28,
+          "date": "Mon Mar 15",
+          "iso": "2027-03-15",
+          "course": 2,
+          "coursework": "Module 16: lean scheduling, final quiz, post-course survey. **Course 2 complete.**",
+          "practical": "**Checkpoint:** present the updated schedule, look-ahead, line-of-balance, and schedule risk register to the mentor. Flag one recovery idea for a delayed task."
+        },
+        {
+          "n": 29,
+          "date": "Wed Mar 17",
+          "iso": "2027-03-17",
+          "course": 3,
+          "coursework": "Course 3, Modules 1–2: course intro, glossary, stages of design, design quiz",
+          "practical": "Pull the job's drawing set. Identify the design stage of each package (schematic, design development, construction documents) and ask the architect or PM what is still outstanding."
+        },
+        {
+          "n": 30,
+          "date": "Fri Mar 19",
+          "iso": "2027-03-19",
+          "course": 3,
+          "coursework": "Module 3: types of estimates, cost indices, cost-capacity factor, quiz and work problem",
+          "practical": "Find the job's original conceptual estimate and the current budget. Compute how far they moved. Apply a cost index to a past company deal to restate it in 2027 dollars."
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "dates": "Mar 22, 24, 26",
+      "title": "Course 3, Modules 4–5",
+      "modules": [
+        {
+          "course": 3,
+          "module": 4,
+          "title": "Quantity Take-Off and Measurement",
+          "hours": "3 hrs",
+          "note": null,
+          "summary": "Turner and Townsend cost managers on takeoff: cut and fill, deep and concrete foundations, formwork, concrete takeoff examples, rebar, structural steel, masonry, curtain wall, facade and wall finishes."
+        },
+        {
+          "course": 3,
+          "module": 5,
+          "title": "Pricing",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Material costs, formwork, reinforcing and concrete, the money and productivity components of labor cost, and estimating equipment costs."
+        }
+      ],
+      "days": [
+        {
+          "n": 31,
+          "date": "Mon Mar 22",
+          "iso": "2027-03-22",
+          "course": 3,
+          "coursework": "Module 4, first part: measurement, cut and fill, deep foundations, concrete foundations and formwork",
+          "practical": "Do a concrete takeoff for one element on the job (footings, a slab, or a wall) from the drawings: volume, formwork area, rebar weight."
+        },
+        {
+          "n": 32,
+          "date": "Wed Mar 24",
+          "iso": "2027-03-24",
+          "course": 3,
+          "coursework": "Module 4, finish: concrete and steel takeoff examples, rebar, structural steel, takeoff quiz",
+          "practical": "Do a second takeoff for a finish trade (drywall, masonry, or flooring) for one unit or area."
+        },
+        {
+          "n": 33,
+          "date": "Fri Mar 26",
+          "iso": "2027-03-26",
+          "course": 3,
+          "coursework": "Module 5: materials, formwork, labor money and productivity, equipment, pricing quiz",
+          "practical": "Price both takeoffs with real unit costs from a recent sub bid or the company's cost history. Split each into labor, material, and equipment."
+        }
+      ]
+    },
+    {
+      "n": 12,
+      "dates": "Mar 29, 31, Apr 2",
+      "title": "Course 3, Modules 6–10",
+      "modules": [
+        {
+          "course": 3,
+          "module": 6,
+          "title": "Building the Estimate",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Estimate classification, methods and formats, a schematic design estimate demo, finalizing, and due diligence checks."
+        },
+        {
+          "course": 3,
+          "module": 7,
+          "title": "Procurement",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Pre-bid estimate, bid documentation, bid stage, bid returns, and bid leveling."
+        },
+        {
+          "course": 3,
+          "module": 8,
+          "title": "Post Contract and Cost Estimation within a Project",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Cost reporting, change orders, and communication."
+        },
+        {
+          "course": 3,
+          "module": 9,
+          "title": "Construction Cost Control Methods",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "What cost control is and the methods used."
+        },
+        {
+          "course": 3,
+          "module": 10,
+          "title": "Earned Value Method",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "EVM parameters, performance examples, favorable and unfavorable performance, calculating EVM, with a work problem."
+        }
+      ],
+      "days": [
+        {
+          "n": 34,
+          "date": "Mon Mar 29",
+          "iso": "2027-03-29",
+          "course": 3,
+          "coursework": "Modules 6–7: building the estimate, procurement, both quizzes",
+          "practical": "Assemble the two takeoffs into a mini estimate with overhead and markup. Gather the sub bids for one trade on the job and build a bid leveling sheet."
+        },
+        {
+          "n": 35,
+          "date": "Wed Mar 31",
+          "iso": "2027-03-31",
+          "course": 3,
+          "coursework": "Modules 8–9: cost reporting, change orders, cost control methods, both quizzes",
+          "practical": "Pick one budget line on the job. Match every invoice and commitment to it and report committed vs spent vs remaining."
+        },
+        {
+          "n": 36,
+          "date": "Fri Apr 2",
+          "iso": "2027-04-02",
+          "course": 3,
+          "coursework": "Module 10: earned value method, EVM quiz and work problem",
+          "practical": "Compute planned value, earned value, actual cost, CPI, and SPI for the job (or one trade) from the latest pay application and schedule update."
+        }
+      ]
+    },
+    {
+      "n": 13,
+      "dates": "Apr 5, 7, 9",
+      "title": "Course 3, Modules 11–14",
+      "modules": [
+        {
+          "course": 3,
+          "module": 11,
+          "title": "Close Out Period",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Punch list review and close-out activities."
+        },
+        {
+          "course": 3,
+          "module": 12,
+          "title": "Cost Estimation in Practice",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Tips in estimating and cost management, and roles and responsibilities of cost managers."
+        },
+        {
+          "course": 3,
+          "module": 13,
+          "title": "Project Cash Flow",
+          "hours": "3 hrs",
+          "note": null,
+          "summary": "A Gilbane PM on cash vs accrual, contractor cash flow, billing, the payment cycle and its delays, schedule of values, front loading, and delaying expenses."
+        },
+        {
+          "course": 3,
+          "module": 14,
+          "title": "Technology Trends in Cost Estimating and Cost Control",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "5D estimating with BIM, estimating software, workflows, and implementation."
+        }
+      ],
+      "days": [
+        {
+          "n": 37,
+          "date": "Mon Apr 5",
+          "iso": "2027-04-05",
+          "course": 3,
+          "coursework": "Modules 11–12: close out, estimating in practice, both quizzes",
+          "practical": "Review the punch list and close-out package from a recently finished company job. List what the owner and lender required before final payment."
+        },
+        {
+          "n": 38,
+          "date": "Wed Apr 7",
+          "iso": "2027-04-07",
+          "course": 3,
+          "coursework": "Module 13, first part: cash flow and accrual, contractor cash flow, billing, payment cycle",
+          "practical": "Follow one pay application on the job end to end: schedule of values, percent complete, retainage, lien waivers, and when the money actually arrived."
+        },
+        {
+          "n": 39,
+          "date": "Fri Apr 9",
+          "iso": "2027-04-09",
+          "course": 3,
+          "coursework": "Module 13, finish: schedule of values, front loading, delaying expenses, cash flow quiz. Module 14: technology trends",
+          "practical": "Chart the job's cash flow month by month in Excel (billings in, costs out). Find the peak negative cash position and how the company funds it."
+        }
+      ]
+    },
+    {
+      "n": 14,
+      "dates": "Apr 12, 14, 16",
+      "title": "Course 3 finish and Course 4, Modules 1–2",
+      "modules": [
+        {
+          "course": 3,
+          "module": 15,
+          "title": "Program Cost Estimating",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Cost control for large capital programs."
+        },
+        {
+          "course": 3,
+          "module": 16,
+          "title": "Lean in Cost Control",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Benchmarking and normalization, lean value, lean in cost control, and set-based design, plus the final quiz."
+        },
+        {
+          "course": 4,
+          "module": 1,
+          "title": "Introduction to the Construction Finance Course",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Course overview, formula sheet, glossary."
+        },
+        {
+          "course": 4,
+          "module": 2,
+          "title": "The Mathematics of Money",
+          "hours": "4 hrs",
+          "note": null,
+          "summary": "Time value of money, simple and compound interest, nominal vs effective rates, minimum attractive rate of return, present and future value, uniform series, net present value, and internal rate of return, with a case study."
+        }
+      ],
+      "days": [
+        {
+          "n": 40,
+          "date": "Mon Apr 12",
+          "iso": "2027-04-12",
+          "course": 3,
+          "coursework": "Modules 15–16: program cost control, lean in cost control, final quiz, post-course survey. **Course 3 complete.**",
+          "practical": "**Checkpoint:** present a cost report for the job to the mentor: budget vs committed vs spent vs projected over/under, with the EVM indices and cash-flow chart."
+        },
+        {
+          "n": 41,
+          "date": "Wed Apr 14",
+          "iso": "2027-04-14",
+          "course": 4,
+          "coursework": "Course 4, Module 1: intro, formula sheet, glossary. Module 2, first part: time value of money, simple and compound interest, nominal and effective rates",
+          "practical": "Read the job's construction loan term sheet. List rate, index, spread, loan-to-cost, reserves, term, and extension options. Compute the effective annual rate."
+        },
+        {
+          "n": 42,
+          "date": "Fri Apr 16",
+          "iso": "2027-04-16",
+          "course": 4,
+          "coursework": "Module 2, second part: present and future value, uniform series",
+          "practical": "Compute one month of interest carry on the construction loan at the current drawn balance. Then project carry for the rest of the job from the draw schedule."
+        }
+      ]
+    },
+    {
+      "n": 15,
+      "dates": "Apr 19, 21, 23",
+      "title": "Course 4, Modules 2–3",
+      "modules": [
+        {
+          "course": 4,
+          "module": 2,
+          "title": "The Mathematics of Money",
+          "hours": null,
+          "note": "finish",
+          "summary": "NPV and IRR examples, Mathematics of Money quiz and case study."
+        },
+        {
+          "course": 4,
+          "module": 3,
+          "title": "Real Estate Finance for Development Projects",
+          "hours": "4 hrs",
+          "note": null,
+          "summary": "Columbia's Anthony Webster on the real estate project lifecycle, zoning code parameters, development costs, estimating sale price by comps and by cap rate, discounted cash flow, NPV and IRR for project evaluation, NPV and IRR in Excel, and compounding periods. The module closest to the developer's job."
+        }
+      ],
+      "days": [
+        {
+          "n": 43,
+          "date": "Mon Apr 19",
+          "iso": "2027-04-19",
+          "course": 4,
+          "coursework": "Module 2, finish: NPV and IRR examples, quiz, case study",
+          "practical": "Build NPV and IRR in Excel for a past company deal using its actual cash flows. Check the IRR against what the mentor remembers the deal returning."
+        },
+        {
+          "n": 44,
+          "date": "Wed Apr 21",
+          "iso": "2027-04-21",
+          "course": 4,
+          "coursework": "Module 3, first part: financing development projects, feasibility study parameters, development costs, comps-based and cap-rate-based sale",
+          "practical": "Pull the Chicago zoning for the job's parcel: district, FAR, height, setbacks, parking. Compute the maximum buildable area and compare with what was built."
+        },
+        {
+          "n": 45,
+          "date": "Fri Apr 23",
+          "iso": "2027-04-23",
+          "course": 4,
+          "coursework": "Module 3, finish: DCF framework, NPV and IRR methods, NPV and IRR in Excel, compounding periods, both assignments",
+          "practical": "Estimate the finished project's value two ways: comparable sales and cap rate on projected NOI. Compare with the lender's appraisal."
+        }
+      ]
+    },
+    {
+      "n": 16,
+      "dates": "Apr 26, 28, 30",
+      "title": "Course 4, Modules 4–5",
+      "modules": [
+        {
+          "course": 4,
+          "module": 4,
+          "title": "Financial Plans for Development Projects",
+          "hours": "3 hrs",
+          "note": null,
+          "summary": "Debt financing, a construction loan example, net cash flows for sponsor and lender, DCF evaluation from both sides, and decision tree analysis with and without time value."
+        },
+        {
+          "course": 4,
+          "module": 5,
+          "title": "Project Finance",
+          "hours": "3 hrs",
+          "note": null,
+          "summary": "Global project finance by sector, stakeholders and their roles, principles of project financing, risk allocation, sponsor and government perspectives, contract parties and agreements."
+        }
+      ],
+      "days": [
+        {
+          "n": 46,
+          "date": "Mon Apr 26",
+          "iso": "2027-04-26",
+          "course": 4,
+          "coursework": "Module 4, first part: financial plans, debt financing, construction loan example, sponsor and lender cash flows, DCF for both",
+          "practical": "Rebuild the job's sources and uses in Excel. Draw the capital stack (senior debt, any mezzanine, sponsor equity) with amounts and percentages."
+        },
+        {
+          "n": 47,
+          "date": "Wed Apr 28",
+          "iso": "2027-04-28",
+          "course": 4,
+          "coursework": "Module 4, finish: decision tree analysis 1–2, example in Excel, results with time value, module quiz",
+          "practical": "Build a two-branch decision tree for a real choice on the job (two finish levels, build now vs wait, lease vs sell). Solve it in Excel with the mentor's probabilities."
+        },
+        {
+          "n": 48,
+          "date": "Fri Apr 30",
+          "iso": "2027-04-30",
+          "course": 4,
+          "coursework": "Module 5: project finance overview, stakeholders, risk allocation, sponsor and government perspectives, contracts, quiz",
+          "practical": "Map the job's stakeholders and who bears each risk: cost overrun, delay, lease-up, interest rate, completion. Ask the mentor 5 questions about how the lender protects itself."
+        }
+      ]
+    },
+    {
+      "n": 17,
+      "dates": "May 3, 5, 7",
+      "title": "Course 4 finish and Course 5, Module 1",
+      "modules": [
+        {
+          "course": 4,
+          "module": 6,
+          "title": "Risk in Project Finance",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Project parties and timeline, borrowing vs partnering, and a developer land-swap case."
+        },
+        {
+          "course": 4,
+          "module": 7,
+          "title": "Public-Private Partnerships",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "P3 concept, project types, structures, risk transfer, success factors, benefits, and case studies."
+        },
+        {
+          "course": 4,
+          "module": 8,
+          "title": "Lean in Construction Financing",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Identifying and mitigating risk through lean project delivery."
+        },
+        {
+          "course": 4,
+          "module": 9,
+          "title": "Course Wrap-up",
+          "hours": "20 min",
+          "note": null,
+          "summary": null
+        },
+        {
+          "course": 5,
+          "module": 1,
+          "title": "Introduction",
+          "hours": "3 hrs",
+          "note": null,
+          "summary": "History and development of the construction industry, common industry characteristics, and internal challenges, including a reading on the impact of COVID-19. Most of the 3 hours is readings and discussion prompts."
+        }
+      ],
+      "days": [
+        {
+          "n": 49,
+          "date": "Mon May 3",
+          "iso": "2027-05-03",
+          "course": 4,
+          "coursework": "Modules 6–7: risk in project finance, public-private partnerships, both quizzes",
+          "practical": "Follow one draw request end to end: pay app, lien waivers, inspector's report, title update, lender funding. Assemble a mock draw package for next month."
+        },
+        {
+          "n": 50,
+          "date": "Wed May 5",
+          "iso": "2027-05-05",
+          "course": 4,
+          "coursework": "Modules 8–9: lean in financing, quiz, wrap-up, post-course survey. **Course 4 complete.**",
+          "practical": "**Checkpoint:** present the sources and uses, capital stack, interest carry projection, NPV/IRR model, and mock draw package to the mentor."
+        },
+        {
+          "n": 51,
+          "date": "Fri May 7",
+          "iso": "2027-05-07",
+          "course": 5,
+          "coursework": "Course 5, Module 1: history, characteristics, internal challenges, module quiz (skim the policy readings)",
+          "practical": "Write one page on where time is lost on the job: the company's own productivity challenges, with examples from the semester."
+        }
+      ]
+    },
+    {
+      "n": 18,
+      "dates": "May 10, 12, 14",
+      "title": "Course 5, Modules 2–5 and final presentation",
+      "modules": [
+        {
+          "course": 5,
+          "module": 2,
+          "title": "Trends in the Construction Industry",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Ten trends reshaping construction: aging infrastructure, the investment gap, climate change, sustainability, urbanization, workforce shortage, and complex regulation."
+        },
+        {
+          "course": 5,
+          "module": 3,
+          "title": "Transformations Needed: Industry and Government Level",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Industry transformation on marketing, and government transformation on regulations, policies, and procurement."
+        },
+        {
+          "course": 5,
+          "module": 4,
+          "title": "Transformations Needed: Companies Level",
+          "hours": "1 hr",
+          "note": null,
+          "summary": "Company transformation on strategy, workforce and culture, and process and operations."
+        },
+        {
+          "course": 5,
+          "module": 5,
+          "title": "New and Rising Innovative Technologies",
+          "hours": "2 hrs",
+          "note": null,
+          "summary": "Big data, AI and machine learning, 3D printing, drones and robotics, VR and AR, digital twins, and the four industrial revolutions."
+        }
+      ],
+      "days": [
+        {
+          "n": 52,
+          "date": "Mon May 10",
+          "iso": "2027-05-10",
+          "course": 5,
+          "coursework": "Module 2: ten trends, trends quiz",
+          "practical": "Pick the 3 trends that hit the company's Chicago work hardest. Write a paragraph on each: what it changes for the company and one response."
+        },
+        {
+          "n": 53,
+          "date": "Wed May 12",
+          "iso": "2027-05-12",
+          "course": 5,
+          "coursework": "Modules 3–4: industry, government, and company transformations, both quizzes",
+          "practical": "Interview the mentor on the company's strategy, workforce, and processes. Identify one process improvement the company could make this year."
+        },
+        {
+          "n": 54,
+          "date": "Fri May 14",
+          "iso": "2027-05-14",
+          "course": 5,
+          "coursework": "Module 5: new technologies, quiz, post-course survey. **Course 5 and specialization complete.**",
+          "practical": "**Final presentation** to the mentor: the full semester package for the job (schedule, cost tracking, finance model, draw package) plus the one improvement for the company."
+        }
+      ]
+    }
+  ],
+  "checkpoints": [
+    {
+      "date": "Fri Feb 12",
+      "iso": "2027-02-12",
+      "course": 1,
+      "title": "Construction Project Management",
+      "presents": "Scope summary, org chart, risk register, WBS, job logic diagram"
+    },
+    {
+      "date": "Mon Mar 15",
+      "iso": "2027-03-15",
+      "course": 2,
+      "title": "Construction Scheduling",
+      "presents": "Updated CPM schedule, 3-week look-ahead, line-of-balance, schedule risk register"
+    },
+    {
+      "date": "Mon Apr 12",
+      "iso": "2027-04-12",
+      "course": 3,
+      "title": "Cost Estimating and Cost Control",
+      "presents": "Cost report with EVM indices and cash-flow chart; takeoffs, mini estimate, bid leveling"
+    },
+    {
+      "date": "Wed May 5",
+      "iso": "2027-05-05",
+      "course": 4,
+      "title": "Construction Finance",
+      "presents": "Sources and uses, capital stack, interest carry, NPV/IRR, mock draw package"
+    },
+    {
+      "date": "Fri May 14",
+      "iso": "2027-05-14",
+      "course": 5,
+      "title": "The Way Forward",
+      "presents": "Final presentation of the whole package plus one improvement for the company"
+    }
+  ]
+}

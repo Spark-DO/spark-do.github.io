@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page not found | Spark-DO" description="This page does not exist." noindex>
+  <section class="missing">
+    <div class="wrap">
+      <h1>This page is not on the schedule</h1>
+      <p class="lede">The address may be mistyped, or the page may have moved.</p>
+      <p><a class="button" href="/">Go to the 30-month plan</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .missing {
+    padding-block: clamp(3rem, 10vw, 7rem);
+  }
+
+  .missing .lede {
+    margin-block: 1.5rem 2rem;
+  }
+</style>
